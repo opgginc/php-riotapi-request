@@ -1,7 +1,7 @@
 {
     "name": "opgg/riotquest",
     "type": "library",
-    "description": "RiotQuest, PHP RiotAPI client library from OP.GG Edit",
+    "description": "RiotQuest, PHP RiotAPI client library from OP.GG",
     "keywords": ["http", "rest", "guzzle", "curl", "client", "HTTP client"],
     "homepage": "http://op.gg/",
     "license": "MIT",
