@@ -1,0 +1,27 @@
+{
+    "name": "opgg/riotquest",
+    "type": "library",
+    "description": "RiotAPI client library",
+    "keywords": ["http", "rest", "guzzle", "curl", "client", "HTTP client"],
+    "homepage": "http://op.gg/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sangrak Choi",
+            "email": "kars@kargn.as",
+            "homepage": "http://kargn.as"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.0 || ^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "RiotQuest\\": "src/"
+        }
+    }
+}
