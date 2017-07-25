@@ -7,7 +7,7 @@ riotapi-request
   - You can control concurrency sessions
 
 ## Installation
-```php
+```bash
 composer require opgg/riotquest
 ```
 
