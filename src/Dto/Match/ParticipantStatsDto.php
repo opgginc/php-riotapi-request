@@ -12,10 +12,15 @@
 
 	/**
 	 * # Old => New
-	 * "magicDamageTaken": 11090, => "magicalDamageTaken": 11090,
-	 * "minionsKilled": 136,      => "totalMinionsKilled": 136,
-	 * "towerKills": 0,           => "turretKills": 0,
-	 * "winner": false            => "win": false
+	 * "championsKilled": 2,                  => "kills": 2,
+	 * "numDeaths": 2,                        => "deaths": 2,
+	 * "physicalDamageDealtToChampions": 341, => "physicalDamageDealt": 2,
+	 * "magicDamageDealtPlayer"               => "magicDamageDealt"
+	 * "physicalDamageDealtToChampions": 341, => "physicalDamageDealt": 2,
+	 * "magicDamageTaken": 11090,             => "magicalDamageTaken": 11090,
+	 * "minionsKilled": 136,                  => "totalMinionsKilled": 136,
+	 * "towerKills": 0,                       => "turretKills": 0,
+	 * "winner": false                        => "win": false
 	 *
 	 * Class ParticipantStatsDto
 	 * @package RiotQuest\Dto\Match
