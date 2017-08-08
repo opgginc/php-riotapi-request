@@ -28,6 +28,8 @@
 	 */
 	class AsyncRiotAPI
 	{
+		const RETRY_UNLIMITED = -1;
+
 		public $concurrency = 30;
 		public $retryLimits = 5;
 		public $requestTimeout = 10.0;
@@ -54,7 +56,8 @@
 		 * @return bool
 		 */
 		protected function shouldRetry($tried, RequestException $requestException = null) {
-			if ($tried >= $this->retryLimits) {
+			if ($this->retryLimits !== static::RETRY_UNLIMITED && $tried >= $this->retryLimits) {
+				// NEED TO WARNING
 				return false;
 			}
 
@@ -64,6 +67,13 @@
 
 			if ($response = $requestException->getResponse()) {
 				if ($response->getStatusCode() >= 500) {
+					return true;
+				}
+
+				if ($response->getStatusCode() === 429) {
+					EventDispatcher::fire(EventDispatcher::EVENT_CALLBACK_EXCEED_RATELIMIT, [
+						$response
+					]);
 					return true;
 				}
 			}

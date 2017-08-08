@@ -46,6 +46,11 @@
 		const EVENT_CALLBACK_FINISH_FAIL = 6;
 
 		/**
+		 * @see \GuzzleHttp\Psr7\Request  param1
+		 */
+		const EVENT_CALLBACK_EXCEED_RATELIMIT = 7;
+
+		/**
 		 * @see string message
 		 */
 		const EVENT_WARNING_DEPRECATED = 8;
