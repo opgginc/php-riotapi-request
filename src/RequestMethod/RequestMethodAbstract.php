@@ -36,6 +36,13 @@
 		}
 
 		/**
+		 * @return Platform
+		 */
+		public function getPlatform() {
+			return $this->platform;
+		}
+
+		/**
 		 * @param       $method
 		 * @param       $uri
 		 * @param array $headers
