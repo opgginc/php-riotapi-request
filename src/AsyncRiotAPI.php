@@ -8,16 +8,16 @@
 
 	namespace RiotQuest;
 
-	use RiotQuest\Dto\BaseArrayDto;
-	use RiotQuest\Dto\BaseDto;
-	use RiotQuest\Exception\RequestFailed\RiotAPICallException;
-	use RiotQuest\Exception\UnknownException;
-	use RiotQuest\RequestMethod\RequestMethodAbstract;
 	use GuzzleHttp\Client;
 	use GuzzleHttp\Exception\ConnectException;
 	use GuzzleHttp\Exception\RequestException;
 	use GuzzleHttp\Pool;
 	use GuzzleHttp\Psr7\Response;
+	use RiotQuest\Dto\BaseArrayDto;
+	use RiotQuest\Dto\BaseDto;
+	use RiotQuest\Exception\RequestFailed\RiotAPICallException;
+	use RiotQuest\Exception\UnknownException;
+	use RiotQuest\RequestMethod\RequestMethodAbstract;
 
 	/**
 	 * CURL 의 multi request 기능을 통해서 비동기 콜을 한다. 단순히 http 에 대해서만 비동기로 실행된다. 콜백들은 비동기처럼 생겼지만, 실제로는 동기로 작동된다. (2개의 콜백이 동시에 작동되는 경우는 절대 없다. 무조건 하나 끝나야함 => PHP 의 특성)
@@ -28,8 +28,7 @@
 	 */
 	class AsyncRiotAPI
 	{
-		// Config
-		const CONCURRENCY_ASYNC = 30;
+		public $concurrency = 30;
 		public $retryLimits = 5;
 		public $requestTimeout = 10.0;
 		public $userAgentString = "OP.GG API Client";
@@ -150,7 +149,7 @@
 						                 return $asyncRequest->getPromise($client);
 					                 });
 				                 }, $this->requests), [
-					                 'concurrency' => static::CONCURRENCY_ASYNC,
+					                 'concurrency' => $this->concurrency,
 					                 'fulfilled'   => function (Response $response, $index) {
 						                 $this->requests[$index]->tried++;
 						                 $this->requests[$index]->markFinished = true;
@@ -175,6 +174,18 @@
 
 			$this->clear();
 			$this->isExecuting = false;
+		}
+
+		/**
+		 * 동시 리퀘스트 제한 수를 수정한다. 1을 걸면 동기 리퀘스트나 다름 없다. 30으로 하면 동시에 30개 리퀘스트를 Async 로 처리한다.
+		 *
+		 * @param $limit
+		 *
+		 * @return $this
+		 */
+		public function setConcurrency($limit) {
+			$this->concurrency = $limit;
+			return $this;
 		}
 
 		protected function clearFinishedRequests() {
