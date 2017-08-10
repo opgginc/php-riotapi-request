@@ -187,4 +187,20 @@
 				})
 				->exec();
 		}
+
+		public function testSyncCall() {
+			$summonerDto = $this->riotApi()->call(new RequestMethod\Summoner\SummonerByName(OPServer::getCurrentPlatform(), "kargnas"));
+			$this->assertTrue($summonerDto instanceof SummonerDto);
+			$this->assertTrue($summonerDto->revisionDate instanceof \RiotQuest\Dto\DateTime);
+		}
+
+		public function testConcurrency() {
+			$this->riotApi()
+				->setConcurrency(1)
+				->add(new RequestMethod\Summoner\SummonerByName(OPServer::getCurrentPlatform(), "kargnas"),
+					function (SummonerDto $summonerDto) {
+						$this->assertTrue($summonerDto instanceof SummonerDto);
+						$this->assertTrue($summonerDto->revisionDate instanceof \RiotQuest\Dto\DateTime);
+					});
+		}
 	}
