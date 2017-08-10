@@ -37,9 +37,9 @@
 		 */
 		public static function InternalName($summonerName) {
 			return trim(str_replace([
-				                   ' ', '/', "\t", "\r", "\n", // Riot policy
-				                   '{', '}', '?', ':', '+', '.', '-', '=', '_', '\\' // invalid strings
-			                   ], '', mb_strtolower($summonerName, 'UTF-8')));
+				                        ' ', '/', "\t", "\r", "\n", // Riot policy
+				                        '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', '-', '.', ',', '<', '>', '?', '\'', ';', '[', ']', '{', '}', '`', '\\' // invalid strings
+			                        ], '', mb_strtolower($summonerName, 'UTF-8')));
 		}
 
 		/**
