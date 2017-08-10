@@ -30,6 +30,7 @@
 	{
 		const RETRY_UNLIMITED = -1;
 
+		// Flags for each objects.
 		public $concurrency = 30;
 		public $retryLimits = 5;
 		public $requestTimeout = 10.0;
@@ -38,12 +39,11 @@
 		// Member Variables
 		protected $apiKey;
 
-		/** @var bool 현재 Exec 작동중인지 여부 */
+		/** @var bool The super important flag for nested callbacks with `add` and `exec` method. This will make throw if user call `add` after `exec` before requests are ended. */
 		private $isExecuting = false;
 
 		/** @var AsyncRequest[] */
 		protected $requests = [];
-
 
 		function __construct($apiKey) {
 			$this->apiKey = $apiKey;
