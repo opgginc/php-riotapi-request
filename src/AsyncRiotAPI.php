@@ -31,6 +31,7 @@
 		const RETRY_UNLIMITED = -1;
 
 		// Flags for each objects.
+		public $isRespectRateLimitHeaders = true;
 		public $concurrency = 30;
 		public $retryLimits = 5;
 		public $requestTimeout = 10.0;
@@ -71,7 +72,7 @@
 				}
 
 				if ($response->getStatusCode() === 429) {
-					EventDispatcher::fire(EventDispatcher::EVENT_CALLBACK_EXCEED_RATELIMIT, [
+					EventDispatcher::fire(EventDispatcher::EVENT_EXCEED_RATELIMIT, [
 						$response
 					]);
 					return true;
@@ -151,7 +152,7 @@
 					                 return (function () use ($asyncRequest, $client) {
 						                 // 재시도인 경우에만 이벤트 호출
 						                 if ($asyncRequest->tried >= 1) {
-							                 EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_RETRIED, [
+							                 EventDispatcher::fire(EventDispatcher::EVENT_BEFORE_REQUEST_RETRIED, [
 								                 $asyncRequest->tried + 1,
 								                 $asyncRequest->request
 							                 ]);
