@@ -152,7 +152,7 @@
 					                 return (function () use ($asyncRequest, $client) {
 						                 // 재시도인 경우에만 이벤트 호출
 						                 if ($asyncRequest->tried >= 1) {
-							                 EventDispatcher::fire(EventDispatcher::EVENT_BEFORE_REQUEST_RETRIED, [
+							                 EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_RETRIED__BEFORE, [
 								                 $asyncRequest->tried + 1,
 								                 $asyncRequest->request
 							                 ]);
