@@ -17,11 +17,13 @@
 
 	class Maps extends RequestMethodAbstract
 	{
+		public $path = EndPoint::LOL_STATIC_DATA__MAPS;
+
 		/** @var string */
 		public $locale, $version;
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::LOL_STATIC_DATA__MAPS;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 
 			$query = static::buildParams([
 				                             'locale'  => $this->locale,

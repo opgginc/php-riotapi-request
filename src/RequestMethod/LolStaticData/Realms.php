@@ -8,17 +8,18 @@
 
 	namespace RiotQuest\RequestMethod\LolStaticData;
 
-	use RiotQuest\Constant\EndPoint;
-	use RiotQuest\Dto\LolStaticData\Realm\RealmDto;
-	use RiotQuest\RequestMethod\Request;
-	use RiotQuest\RequestMethod\RequestMethodAbstract;
 	use GuzzleHttp\Psr7\Response;
 	use JsonMapper;
+	use RiotQuest\Constant\EndPoint;
+	use RiotQuest\Dto\LolStaticData\Realm\RealmDto;
+	use RiotQuest\RequestMethod\RequestMethodAbstract;
 
 	class Realms extends RequestMethodAbstract
 	{
+		public $path = EndPoint::LOL_STATIC_DATA__PROFILE_ICONS;
+
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::LOL_STATIC_DATA__PROFILE_ICONS;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 
 			return $this->getPsr7Request('GET', $uri);
 		}

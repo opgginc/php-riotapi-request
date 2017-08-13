@@ -55,9 +55,14 @@
 		const EVENT_EXCEED_RATELIMIT = 7;
 
 		/**
+		 * @see Request          param1
+		 */
+		const EVENT_REQUEST__BEFORE = 9;
+
+		/**
 		 * @see string message
 		 */
-		const EVENT_WARNING_DEPRECATED = 8;
+		const EVENT_WARNING_DEPRECATED = 999;
 
 		static $events = [];
 

@@ -17,6 +17,8 @@
 
 	class SummonerSpells extends RequestMethodAbstract
 	{
+		public $path = EndPoint::LOL_STATIC_DATA__SUMMONER_SPELLS;
+
 		/** @var string */
 		public $locale, $version;
 
@@ -27,7 +29,7 @@
 		public $dataById;
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::LOL_STATIC_DATA__SUMMONER_SPELLS;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 
 			$query = static::buildParams([
 				                             'locale'   => $this->locale,

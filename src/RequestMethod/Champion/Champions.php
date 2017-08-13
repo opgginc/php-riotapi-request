@@ -17,10 +17,12 @@
 
 	class Champions extends RequestMethodAbstract
 	{
+		public $path = EndPoint::CHAMPION__CHAMPIONS;
+
 		public $freeToPlay = null;
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::CHAMPION__CHAMPIONS;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 
 			$query = static::buildParams([
 				                             'freeToPlay' => $this->freeToPlay

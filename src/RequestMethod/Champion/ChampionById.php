@@ -17,6 +17,8 @@
 
 	class ChampionById extends RequestMethodAbstract
 	{
+		public $path = EndPoint::CHAMPION__CHAMPION;
+
 		public $championId;
 
 		function __construct(Platform $platform, $championId) {
@@ -26,7 +28,7 @@
 		}
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::CHAMPION__CHAMPION;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 			$uri = str_replace("{id}", $this->championId, $uri);
 
 			return $this->getPsr7Request('GET', $uri);

@@ -18,6 +18,8 @@
 
 	class TimelineById extends RequestMethodAbstract
 	{
+		public $path = EndPoint::MATCH__TIMELINE_BY_MATCH;
+
 		public $id;
 
 		function __construct(Platform $platform, $id) {
@@ -27,7 +29,7 @@
 		}
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::MATCH__TIMELINE_BY_MATCH;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 			$uri = str_replace("{matchId}", $this->id, $uri);
 
 			return $this->getPsr7Request('GET', $uri);

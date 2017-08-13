@@ -17,11 +17,13 @@
 
 	class Languages extends RequestMethodAbstract
 	{
+		public $path = EndPoint::LOL_STATIC_DATA__LANGUAGES;
+
 		/** @var string */
 		public $locale, $version;
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::LOL_STATIC_DATA__LANGUAGES;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 
 			return $this->getPsr7Request('GET', $uri);
 		}

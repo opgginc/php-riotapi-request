@@ -17,11 +17,13 @@
 
 	class ProfileIcons extends RequestMethodAbstract
 	{
+		public $path = EndPoint::LOL_STATIC_DATA__PROFILE_ICONS;
+
 		/** @var string */
 		public $locale, $version;
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::LOL_STATIC_DATA__PROFILE_ICONS;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 
 			$query = static::buildParams([
 				                             'locale'  => $this->locale,

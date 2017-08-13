@@ -27,7 +27,7 @@
 	class AsyncRequest
 	{
 		/** @var RequestMethodAbstract */
-		protected $requestMethod;
+		public $requestMethod;
 
 		/** @var Request */
 		public $request;
@@ -70,13 +70,13 @@
 		}
 
 		public function onDone(Response $response) {
-			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_SUCCESS__BEFORE_CALLBACK, [$response, $this->request]);
+			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_SUCCESS__BEFORE_CALLBACK, [$response, $this]);
 
 			// Dto 로 바꿔서 던져준다.
 			$cb  = $this->callbackDone;
 			$res = $cb($this->requestMethod->mapping($response));
 
-			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_SUCCESS__AFTER_CALLBACK, [$this->request]);
+			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_SUCCESS__AFTER_CALLBACK, [$this]);
 			return $res;
 		}
 
@@ -88,7 +88,7 @@
 			$cb  = $this->callbackFail;
 			$res = $cb($exception);
 
-			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_FAIL__AFTER_CALLBACK, [$this->request]);
+			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_FAIL__AFTER_CALLBACK, [$this]);
 			return $res;
 		}
 

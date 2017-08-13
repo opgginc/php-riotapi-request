@@ -16,8 +16,10 @@
 
 	class FeaturedGames extends RequestMethodAbstract
 	{
+		public $path = EndPoint::SPECTATOR__FEATURED_GAMES;
+
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::SPECTATOR__FEATURED_GAMES;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 
 			return $this->getPsr7Request('GET', $uri);
 		}

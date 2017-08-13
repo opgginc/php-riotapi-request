@@ -17,6 +17,8 @@
 
 	class MatchById extends RequestMethodAbstract
 	{
+		public $path = EndPoint::MATCH__BY_MATCH;
+
 		public $id;
 
 		/** @var integer */
@@ -29,7 +31,7 @@
 		}
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::MATCH__BY_MATCH;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 			$uri = str_replace("{matchId}", $this->id, $uri);
 
 			$query = http_build_query([
