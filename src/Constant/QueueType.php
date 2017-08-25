@@ -73,8 +73,8 @@
 		];
 
 		public static $RANKED_SOLO = [
-			self::RANKED_SOLO_5x5,
 			self::TEAM_BUILDER_RANKED_SOLO,
+			self::RANKED_SOLO_5x5,
 		];
 
 		public static $RANKED_FLEX = [
