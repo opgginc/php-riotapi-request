@@ -63,6 +63,8 @@
 
 		// Undocumented Types
 		const TEAM_BUILDER_TT_BOTS = 800;
+		const UNKNOWN_980 = 980;
+		const UNKNOWN_990 = 990;
 
 		public static $NORMALS = [
 			self::NORMAL_3x3,
@@ -211,7 +213,9 @@
 				static::DARKSTAR_3x3                    => "DARKSTAR_3x3",
 
 				// Undocumented Types
-				static::TEAM_BUILDER_TT_BOTS            => "TEAM_BUILDER_TT_BOTS"
+				static::TEAM_BUILDER_TT_BOTS            => "TEAM_BUILDER_TT_BOTS",
+				static::UNKNOWN_980                     => "UNKNOWN_980",
+				static::UNKNOWN_990                     => "UNKNOWN_990",
 			];
 		}
 
