@@ -60,11 +60,16 @@
 		const RANKED_FLEX_SR = 440; // Ranked Flex Summoner's Rift games
 		const ASSASSINATE_5x5 = 600; // Blood Hunt Assassin games
 		const DARKSTAR_3x3 = 610; // Dark Star games
+		const UNKNOWN_810 = 810; // Twisted Treeline Co-op vs. AI Intro Bot games
+		const UNKNOWN_820 = 820; // Twisted Treeline Co-op vs. AI Beginner Bot games
+		const UNKNOWN_830 = 830; // Summoner's Rift Co-op vs. AI Intro Bot games
+		const UNKNOWN_840 = 840; // Summoner's Rift Co-op vs. AI Beginner Bot games
+		const UNKNOWN_850 = 850; // Summoner's Rift Co-op vs. AI Intermediate Bot games
+		const UNKNOWN_980 = 980; // Star Guardian Invasion: Normal games
+		const UNKNOWN_990 = 990; // Star Guardian Invasion: Onslaught games
 
 		// Undocumented Types
 		const TEAM_BUILDER_TT_BOTS = 800;
-		const UNKNOWN_980 = 980;
-		const UNKNOWN_990 = 990;
 
 		public static $NORMALS = [
 			self::NORMAL_3x3,
@@ -214,8 +219,13 @@
 
 				// Undocumented Types
 				static::TEAM_BUILDER_TT_BOTS            => "TEAM_BUILDER_TT_BOTS",
-				static::UNKNOWN_980                     => "UNKNOWN_980",
-				static::UNKNOWN_990                     => "UNKNOWN_990",
+				static::UNKNOWN_810                     => 'UNKNOWN_810',
+				static::UNKNOWN_820                     => 'UNKNOWN_820',
+				static::UNKNOWN_830                     => 'UNKNOWN_830',
+				static::UNKNOWN_840                     => 'UNKNOWN_840',
+				static::UNKNOWN_850                     => 'UNKNOWN_850',
+				static::UNKNOWN_980                     => 'UNKNOWN_980',
+				static::UNKNOWN_990                     => 'UNKNOWN_990',
 			];
 		}
 
