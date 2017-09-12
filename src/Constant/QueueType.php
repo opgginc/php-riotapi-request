@@ -128,7 +128,9 @@
 			self::KING_PORO_5x5,
 			self::COUNTER_PICK,
 			self::BILGEWATER_5x5,
-			self::ARSR_5x5
+			self::ARSR_5x5,
+			self::UNKNOWN_980,
+			self::UNKNOWN_990,
 		];
 
 		/** @var integer */
