@@ -73,7 +73,8 @@
 
 				if ($response->getStatusCode() === 429) {
 					EventDispatcher::fire(EventDispatcher::EVENT_EXCEED_RATELIMIT, [
-						$response
+						$response,
+						$requestException->getRequest(),
 					]);
 					return true;
 				}
