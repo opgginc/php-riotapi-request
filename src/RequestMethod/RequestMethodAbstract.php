@@ -24,7 +24,7 @@
 	 */
 	abstract class RequestMethodAbstract
 	{
-		/** @var integer */
+		/** @var string */
 		public $path;
 
 		/** @var Platform */
