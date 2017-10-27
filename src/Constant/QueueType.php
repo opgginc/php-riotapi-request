@@ -73,7 +73,10 @@
 		const BOT_SR_INTRO = 830; // Summoner's Rift Co-op vs. AI Intro Bot games
 		const BOT_SR_BEGINNER = 840; // Summoner's Rift Co-op vs. AI Beginner Bot games
 		const BOT_SR_INTERMEDIATE = 850; // Summoner's Rift Co-op vs. AI Intermediate Bot games
-		const SIEGE_NEW = 940; // Nexus Siege games
+		const SIEGE_NEW = 940; // Nexus Siege games (315)
+
+		const BOT_SR_NIGHTMARE_DIF = 950; // Doom Bots games /w difficulty voting (기존 91, 92, 93)
+		const BOT_SR_NIGHTMARE = 960; // Doom Bots games /w
 
 		public static $NORMALS = [
 			self::NORMAL_3x3,
@@ -121,6 +124,8 @@
 			self::BOT_SR_INTERMEDIATE,
 			self::BOT_SR_INTRO,
 			self::BOT_SR_BEGINNER,
+			self::BOT_SR_NIGHTMARE,
+			self::BOT_SR_NIGHTMARE_DIF,
 		];
 
 		public static $ARAM = [
@@ -146,6 +151,8 @@
 			self::VCP_ONSLAUGHT,
 			self::SIEGE,
 			self::SIEGE_NEW,
+			self::BOT_SR_NIGHTMARE,
+			self::BOT_SR_NIGHTMARE_DIF,
 		];
 
 		/** @var integer */
