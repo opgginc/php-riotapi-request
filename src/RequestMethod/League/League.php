@@ -39,11 +39,6 @@
 			$json = \GuzzleHttp\json_decode($response->getBody());
 
 			$mapper = new JsonMapper();
-
-			$items = [];
-			foreach ($json as $key => $val) {
-				$items[] = $mapper->map($val, new LeagueListDTO());
-			}
-			return $items;
+			return $mapper->map($json, new LeagueListDTO());
 		}
 	}
