@@ -171,4 +171,63 @@
 		public $timeCCingOthers;
 		/** @var double */
 		public $physicalDamageTaken;
+
+		/** @var int */
+		public $perk0;
+		/** @var int */
+		public $perk0Var1;
+		/** @var int */
+		public $perk0Var2;
+		/** @var int */
+		public $perk0Var3;
+
+		/** @var int */
+		public $perk1;
+		/** @var int */
+		public $perk1Var1;
+		/** @var int */
+		public $perk1Var2;
+		/** @var int */
+		public $perk1Var3;
+
+		/** @var int */
+		public $perk2;
+		/** @var int */
+		public $perk2Var1;
+		/** @var int */
+		public $perk2Var2;
+		/** @var int */
+		public $perk2Var3;
+
+		/** @var int */
+		public $perk3;
+		/** @var int */
+		public $perk3Var1;
+		/** @var int */
+		public $perk3Var2;
+		/** @var int */
+		public $perk3Var3;
+
+		/** @var int */
+		public $perk4;
+		/** @var int */
+		public $perk4Var1;
+		/** @var int */
+		public $perk4Var2;
+		/** @var int */
+		public $perk4Var3;
+
+		/** @var int */
+		public $perk5;
+		/** @var int */
+		public $perk5Var1;
+		/** @var int */
+		public $perk5Var2;
+		/** @var int */
+		public $perk5Var3;
+
+		/** @var int */
+		public $perkPrimaryStyle;
+		/** @var int */
+		public $perkSubStyle;
 	}
