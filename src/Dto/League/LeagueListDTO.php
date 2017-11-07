@@ -13,6 +13,8 @@
 	class LeagueListDTO extends BaseDto
 	{
 		/** @var string */
+		public $leagueId;
+		/** @var string */
 		public $tier;
 		/** @var string */
 		public $queue;
