@@ -24,6 +24,7 @@
 		const SPECTATOR__ACTIVE_GAMES_BY_SUMMONER = "/lol/spectator/v3/active-games/by-summoner/{summonerId}";
 		const SPECTATOR__FEATURED_GAMES = "/lol/spectator/v3/featured-games";
 		const LEAGUE__CHALLENGER_LEAGUES_BY_QUEUE = "/lol/league/v3/challengerleagues/by-queue/{queue}";
+		const LEAGUE__LEAGUES = "/lol/league/v3/leagues/{leagueId}";
 		const LEAGUE__LEAGUES_BY_SUMMONER = "/lol/league/v3/leagues/by-summoner/{summonerId}";
 		const LEAGUE__MASTER_LEAGUES_BY_QUEUE = "/lol/league/v3/masterleagues/by-queue/{queue}";
 		const LEAGUE__POSITIONS_BY_SUMMONER = "/lol/league/v3/positions/by-summoner/{summonerId}";

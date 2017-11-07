@@ -38,6 +38,8 @@
 		public $freshBlood;
 		/** @var  string */
 		public $tier;
+		/** @var  string */
+		public $leagueId;
 		/** @var  int */
 		public $leaguePoints;
 	}
