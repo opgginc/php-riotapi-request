@@ -8,15 +8,17 @@
 
 	namespace RiotQuest\RequestMethod\Summoner;
 
+	use GuzzleHttp\Psr7\Response;
+	use JsonMapper;
 	use RiotQuest\Constant\EndPoint;
 	use RiotQuest\Constant\Platform;
 	use RiotQuest\Dto\Summoner\SummonerDto;
 	use RiotQuest\RequestMethod\RequestMethodAbstract;
-	use GuzzleHttp\Psr7\Response;
-	use JsonMapper;
 
 	class SummonerByName extends RequestMethodAbstract
 	{
+		public $path = EndPoint::SUMMONER__SUMMONERS_BY_NAME;
+
 		public $name;
 
 		function __construct(Platform $platform, $name) {
@@ -26,7 +28,7 @@
 		}
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::SUMMONER__SUMMONERS_BY_NAME;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 			$uri = str_replace("{summonerName}", $this->name, $uri);
 
 			return $this->getPsr7Request('GET', $uri);

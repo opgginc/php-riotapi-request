@@ -60,21 +60,37 @@
 		const RANKED_FLEX_SR = 440; // Ranked Flex Summoner's Rift games
 		const ASSASSINATE_5x5 = 600; // Blood Hunt Assassin games
 		const DARKSTAR_3x3 = 610; // Dark Star games
+		const VCP_NORMAL = 980; // Star Guardian Invasion: Normal games
+		const VCP_ONSLAUGHT = 990; // Star Guardian Invasion: Onslaught games
 
-		// Undocumented Types
-		const TEAM_BUILDER_TT_BOTS = 800;
+		const NORMAL_BLIND_SR = 430; // Summoner's Rift 5v5 Blind Pick games
+		const ARAM_5x5_NEW = 450; // ARAM games
+		const NORMAL_TT = 460; // Twisted Treeline 3v3 Blind Pick games
+		const RANKED_FLEX_TT_NEW = 470; // Ranked 3v3 Flex Twisted Treeline games
+		const BOT_TT_INTERMEDIATE = 800; // Twisted Treeline Co-op vs. AI Intermediate Bot games
+		const BOT_TT_INTRO = 810; // Twisted Treeline Co-op vs. AI Intro Bot games
+		const BOT_TT_BEGINNER = 820; // Twisted Treeline Co-op vs. AI Beginner Bot games
+		const BOT_SR_INTRO = 830; // Summoner's Rift Co-op vs. AI Intro Bot games
+		const BOT_SR_BEGINNER = 840; // Summoner's Rift Co-op vs. AI Beginner Bot games
+		const BOT_SR_INTERMEDIATE = 850; // Summoner's Rift Co-op vs. AI Intermediate Bot games
+		const SIEGE_NEW = 940; // Nexus Siege games (315)
+
+		const BOT_SR_NIGHTMARE_DIF = 950; // Doom Bots games /w difficulty voting (기존 91, 92, 93)
+		const BOT_SR_NIGHTMARE = 960; // Doom Bots games /w
 
 		public static $NORMALS = [
 			self::NORMAL_3x3,
 			self::NORMAL_5x5_DRAFT,
 			self::NORMAL_5x5_BLIND,
+			self::NORMAL_BLIND_SR,
+			self::NORMAL_TT,
 			self::TEAM_BUILDER_DRAFT_UNRANKED_5x5,
 			self::TB_BLIND_SUMMONERS_RIFT_5x5,
 		];
 
 		public static $RANKED_SOLO = [
-			self::RANKED_SOLO_5x5,
 			self::TEAM_BUILDER_RANKED_SOLO,
+			self::RANKED_SOLO_5x5,
 		];
 
 		public static $RANKED_FLEX = [
@@ -83,6 +99,7 @@
 			self::TEAM_BUILDER_DRAFT_RANKED_5x5,
 			self::RANKED_PREMADE_5x5,
 			self::RANKED_PREMADE_3x3,
+			self::RANKED_FLEX_TT_NEW,
 		];
 
 		public static $RANKED_TEAM = [
@@ -101,10 +118,19 @@
 			self::NIGHTMARE_BOT_5x5_RANK1,
 			self::NIGHTMARE_BOT_5x5_RANK2,
 			self::NIGHTMARE_BOT_5x5_RANK5,
+			self::BOT_TT_INTERMEDIATE,
+			self::BOT_TT_INTRO,
+			self::BOT_TT_BEGINNER,
+			self::BOT_SR_INTERMEDIATE,
+			self::BOT_SR_INTRO,
+			self::BOT_SR_BEGINNER,
+			self::BOT_SR_NIGHTMARE,
+			self::BOT_SR_NIGHTMARE_DIF,
 		];
 
 		public static $ARAM = [
 			self::ARAM_5x5,
+			self::ARAM_5x5_NEW,
 			self::BILGEWATER_ARAM_5x5,
 		];
 
@@ -121,7 +147,13 @@
 			self::KING_PORO_5x5,
 			self::COUNTER_PICK,
 			self::BILGEWATER_5x5,
-			self::ARSR_5x5
+			self::ARSR_5x5,
+			self::VCP_NORMAL,
+			self::VCP_ONSLAUGHT,
+			self::SIEGE,
+			self::SIEGE_NEW,
+			self::BOT_SR_NIGHTMARE,
+			self::BOT_SR_NIGHTMARE_DIF,
 		];
 
 		/** @var integer */
@@ -210,8 +242,21 @@
 				static::ASSASSINATE_5x5                 => "ASSASSINATE_5x5",
 				static::DARKSTAR_3x3                    => "DARKSTAR_3x3",
 
-				// Undocumented Types
-				static::TEAM_BUILDER_TT_BOTS            => "TEAM_BUILDER_TT_BOTS"
+				static::ARAM_5x5_NEW         => "ARAM_5x5_NEW",
+				static::NORMAL_TT            => "NORMAL_TT",
+				static::RANKED_FLEX_TT_NEW   => "RANKED_FLEX_TT_NEW",
+				static::BOT_TT_INTERMEDIATE  => "BOT_TT_INTERMEDIATE",
+				static::BOT_TT_INTRO         => "BOT_TT_INTRO",
+				static::BOT_TT_BEGINNER      => "BOT_TT_BEGINNER",
+				static::BOT_SR_INTRO         => "BOT_SR_INTRO",
+				static::BOT_SR_BEGINNER      => "BOT_SR_BEGINNER",
+				static::BOT_SR_INTERMEDIATE  => "BOT_SR_INTERMEDIATE",
+				static::SIEGE_NEW            => "SIEGE_NEW",
+				static::VCP_NORMAL           => 'VCP_NORMAL',
+				static::VCP_ONSLAUGHT        => 'VCP_ONSLAUGHT',
+				static::NORMAL_BLIND_SR      => "NORMAL_BLIND_SR",
+				static::BOT_SR_NIGHTMARE_DIF => "BOT_SR_NIGHTMARE_DIF",
+				static::BOT_SR_NIGHTMARE     => "BOT_SR_NIGHTMARE",
 			];
 		}
 

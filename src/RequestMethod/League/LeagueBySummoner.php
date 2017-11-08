@@ -18,6 +18,8 @@
 
 	class LeagueBySummoner extends RequestMethodAbstract
 	{
+		public $path = EndPoint::LEAGUE__LEAGUES_BY_SUMMONER;
+
 		public $summonerId;
 
 		function __construct(Platform $platform, $summonerId) {
@@ -27,7 +29,7 @@
 		}
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::LEAGUE__LEAGUES_BY_SUMMONER;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 			$uri = str_replace("{summonerId}", $this->summonerId, $uri);
 
 			return $this->getPsr7Request('GET', $uri);

@@ -1,33 +1,30 @@
 <?php
-	/**
-	 * Created by PhpStorm.
-	 * User: kargnas
-	 * Date: 2017-07-04
-	 * Time: 18:31
-	 */
 
 	namespace RiotQuest\RequestMethod\LolStaticData;
 
 	use RiotQuest\Constant\EndPoint;
-	use RiotQuest\Dto\LolStaticData\Language\LanguageStringsDto;
-	use RiotQuest\RequestMethod\Request;
+	use RiotQuest\Dto\LolStaticData\Perk\PerkListDto;
 	use RiotQuest\RequestMethod\RequestMethodAbstract;
 	use GuzzleHttp\Psr7\Response;
 	use JsonMapper;
 
-	class LanguageStrings extends RequestMethodAbstract
+	class Perks extends RequestMethodAbstract
 	{
-		public $path = EndPoint::LOL_STATIC_DATA__LANGUAGE_STRINGS;
+		public $path = EndPoint::LOL_STATIC_DATA__PERKS;
 
 		/** @var string */
 		public $locale, $version;
+
+		/** @var string[] */
+		public $tags = ['all'];
 
 		public function getRequest() {
 			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 
 			$query = static::buildParams([
 				                             'locale'  => $this->locale,
-				                             'version' => $this->version
+				                             'version' => $this->version,
+				                             'tags'    => $this->tags,
 			                             ]);
 
 			if (strlen($query) > 0) {
@@ -40,6 +37,6 @@
 			$json = \GuzzleHttp\json_decode($response->getBody());
 
 			$mapper = new JsonMapper();
-			return $mapper->map($json, new LanguageStringsDto());
+			return $mapper->map($json, new PerkListDto());
 		}
 	}

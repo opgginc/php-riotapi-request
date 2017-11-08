@@ -17,6 +17,8 @@
 
 	class ActiveGameBySummoner extends RequestMethodAbstract
 	{
+		public $path = EndPoint::SPECTATOR__ACTIVE_GAMES_BY_SUMMONER;
+
 		public $summonerId;
 
 		function __construct(Platform $platform, $summonerId) {
@@ -26,7 +28,7 @@
 		}
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::SPECTATOR__ACTIVE_GAMES_BY_SUMMONER;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 			$uri = str_replace("{summonerId}", $this->summonerId, $uri);
 
 			return $this->getPsr7Request('GET', $uri);

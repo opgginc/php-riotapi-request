@@ -17,8 +17,10 @@
 
 	class Versions extends RequestMethodAbstract
 	{
+		public $path = EndPoint::LOL_STATIC_DATA__VERSIONS;
+
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::LOL_STATIC_DATA__VERSIONS;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 
 			return $this->getPsr7Request('GET', $uri);
 		}

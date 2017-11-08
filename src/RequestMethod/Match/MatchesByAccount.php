@@ -18,6 +18,8 @@
 
 	class MatchesByAccount extends RequestMethodAbstract
 	{
+		public $path = EndPoint::MATCH__LIST_BY_ACCOUNT;
+
 		public $accountId;
 
 		/** @var \DateTime */
@@ -36,7 +38,7 @@
 		}
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::MATCH__LIST_BY_ACCOUNT;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 			$uri = str_replace("{accountId}", $this->accountId, $uri);
 
 			$query = http_build_query([

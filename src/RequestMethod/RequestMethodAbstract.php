@@ -24,6 +24,9 @@
 	 */
 	abstract class RequestMethodAbstract
 	{
+		/** @var string */
+		public $path;
+
 		/** @var Platform */
 		protected $platform;
 
@@ -33,6 +36,13 @@
 
 		protected function setPlatform(Platform $platform) {
 			$this->platform = $platform;
+		}
+
+		/**
+		 * @return Platform
+		 */
+		public function getPlatform() {
+			return $this->platform;
 		}
 
 		/**

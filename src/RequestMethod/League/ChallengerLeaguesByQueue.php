@@ -18,6 +18,8 @@
 
 	class ChallengerLeaguesByQueue extends RequestMethodAbstract
 	{
+		public $path = EndPoint::LEAGUE__CHALLENGER_LEAGUES_BY_QUEUE;
+
 		public $queue;
 
 		function __construct(Platform $platform, $queue) {
@@ -27,7 +29,7 @@
 		}
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::LEAGUE__CHALLENGER_LEAGUES_BY_QUEUE;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 			$uri = str_replace("{queue}", $this->queue, $uri);
 
 			return $this->getPsr7Request('GET', $uri);

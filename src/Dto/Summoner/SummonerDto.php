@@ -36,10 +36,10 @@
 		 * @return string
 		 */
 		public static function InternalName($summonerName) {
-			return str_replace([
-				                   ' ', '/', "\t", "\r", "\n", // Riot policy
-				                   '{', '}', '?', ':', '+', '.', '-', '=', '_', '\\' // invalid strings
-			                   ], '', mb_strtolower($summonerName, 'UTF-8'));
+			return trim(str_replace([
+				                        ' ', '/', "\t", "\r", "\n", // Riot policy
+				                        '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', '-', '.', ',', '<', '>', '?', '\'', ';', '[', ']', '{', '}', '`', '\\' // invalid strings
+			                        ], '', mb_strtolower($summonerName, 'UTF-8')));
 		}
 
 		/**

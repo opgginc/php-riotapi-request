@@ -6,6 +6,11 @@ riotapi-request
 - Batch calls (async request using guzzlehttp promise)
   - You can control concurrency sessions
 
+## Installation
+```bash
+composer require opgg/riotquest
+```
+
 ## Example
 ```php
 use RiotQuest\Dto\LolStaticData\Champion\ChampionListDto;

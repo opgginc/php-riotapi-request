@@ -27,7 +27,7 @@
 	class AsyncRequest
 	{
 		/** @var RequestMethodAbstract */
-		protected $requestMethod;
+		public $requestMethod;
 
 		/** @var Request */
 		public $request;
@@ -70,25 +70,25 @@
 		}
 
 		public function onDone(Response $response) {
-			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_SUCCESS, [$response, $this->request]);
+			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_SUCCESS__BEFORE_CALLBACK, [$response, $this]);
 
 			// Dto 로 바꿔서 던져준다.
 			$cb  = $this->callbackDone;
 			$res = $cb($this->requestMethod->mapping($response));
 
-			EventDispatcher::fire(EventDispatcher::EVENT_CALLBACK_FINISH_DONE, [$this->request]);
+			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_SUCCESS__AFTER_CALLBACK, [$this]);
 			return $res;
 		}
 
 		public function onFail(RequestException $requestException) {
 			$exception = RiotAPICallException::ByGuzzleRequestException($requestException);
 
-			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_FAIL, [$exception]);
+			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_FAIL__BEFORE_CALLBACK, [$exception]);
 
 			$cb  = $this->callbackFail;
 			$res = $cb($exception);
 
-			EventDispatcher::fire(EventDispatcher::EVENT_CALLBACK_FINISH_FAIL, [$this->request]);
+			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_FAIL__AFTER_CALLBACK, [$this]);
 			return $res;
 		}
 

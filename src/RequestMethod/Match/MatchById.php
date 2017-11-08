@@ -17,10 +17,9 @@
 
 	class MatchById extends RequestMethodAbstract
 	{
-		public $id;
+		public $path = EndPoint::MATCH__BY_MATCH;
 
-		/** @var integer */
-		public $forAccountId;
+		public $id;
 
 		function __construct(Platform $platform, $id) {
 			parent::__construct($platform);
@@ -29,16 +28,8 @@
 		}
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . EndPoint::MATCH__BY_MATCH;
+			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
 			$uri = str_replace("{matchId}", $this->id, $uri);
-
-			$query = http_build_query([
-				                          'forAccountId' => $this->forAccountId
-			                          ]);
-
-			if (strlen($query) > 0) {
-				$uri .= "?{$query}";
-			}
 
 			return $this->getPsr7Request('GET', $uri);
 		}
