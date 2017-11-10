@@ -76,7 +76,9 @@
 		const SIEGE_NEW = 940; // Nexus Siege games (315)
 
 		const BOT_SR_NIGHTMARE_DIF = 950; // Doom Bots games /w difficulty voting (기존 91, 92, 93)
-		const BOT_SR_NIGHTMARE = 960; // Doom Bots games /w
+		const BOT_SR_NIGHTMARE = 960; // Doom Bots games
+
+		const UNKNOWN_910 = 910;
 
 		public static $NORMALS = [
 			self::NORMAL_3x3,
@@ -256,6 +258,8 @@
 				static::NORMAL_BLIND_SR      => "NORMAL_BLIND_SR",
 				static::BOT_SR_NIGHTMARE_DIF => "BOT_SR_NIGHTMARE_DIF",
 				static::BOT_SR_NIGHTMARE     => "BOT_SR_NIGHTMARE",
+
+				static::UNKNOWN_910 => "UNKNOWN_910",
 			];
 		}
 
