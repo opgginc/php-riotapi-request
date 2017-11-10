@@ -32,6 +32,7 @@
 		public $spell1Id;
 		/** @var double    The summoner ID of this participant */
 		public $summonerId;
-		/** @var GameCustomizationObject[]    The gameCustomizationObjects used by this participant */
-		public $gameCustomizationObjects;
+		/** @var Perk    The perks used by this participant */
+		public $perks;
+
 	}

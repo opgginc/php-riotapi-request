@@ -132,6 +132,7 @@
 
 		public static $ARAM = [
 			self::ARAM_5x5,
+			self::ARAM_5x5_NEW,
 			self::BILGEWATER_ARAM_5x5,
 		];
 
