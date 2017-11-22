@@ -79,6 +79,7 @@
 		const BOT_SR_NIGHTMARE = 960; // Doom Bots games
 
 		const UNKNOWN_910 = 910;
+		const UNKNOWN_1000 = 1000;
 
 		public static $NORMALS = [
 			self::NORMAL_3x3,
@@ -261,6 +262,7 @@
 				static::BOT_SR_NIGHTMARE     => "BOT_SR_NIGHTMARE",
 
 				static::UNKNOWN_910 => "UNKNOWN_910",
+				static::UNKNOWN_1000 => "UNKNOWN_1000",
 			];
 		}
 
@@ -272,15 +274,15 @@
 
 		public function isNormal() { return in_array($this->id, static::$NORMALS, true); }
 
-		public function isRankedFlex() { in_array($this->id, static::$RANKED_FLEX, true); }
+		public function isRankedFlex() { return in_array($this->id, static::$RANKED_FLEX, true); }
 
-		public function isRankedSolo() { in_array($this->id, static::$RANKED_SOLO, true); }
+		public function isRankedSolo() { return in_array($this->id, static::$RANKED_SOLO, true); }
 
-		public function isRankedTeam() { in_array($this->id, static::$RANKED_TEAM, true); }
+		public function isRankedTeam() { return in_array($this->id, static::$RANKED_TEAM, true); }
 
-		public function isBot() { in_array($this->id, static::$BOT, true); }
+		public function isBot() { return in_array($this->id, static::$BOT, true); }
 
-		public function isAram() { in_array($this->id, static::$ARAM, true); }
+		public function isAram() { return in_array($this->id, static::$ARAM, true); }
 
 		function __construct($id, $name) {
 			$this->id   = $id;
