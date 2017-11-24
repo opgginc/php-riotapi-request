@@ -79,7 +79,7 @@
 		const BOT_SR_NIGHTMARE = 960; // Doom Bots games
 
 		const UNKNOWN_910 = 910;
-		const UNKNOWN_1000 = 1000;
+		const OVERCHARGE = 1000;
 
 		public static $NORMALS = [
 			self::NORMAL_3x3,
@@ -157,6 +157,7 @@
 			self::SIEGE_NEW,
 			self::BOT_SR_NIGHTMARE,
 			self::BOT_SR_NIGHTMARE_DIF,
+			self::OVERCHARGE,
 		];
 
 		/** @var integer */
@@ -262,7 +263,7 @@
 				static::BOT_SR_NIGHTMARE     => "BOT_SR_NIGHTMARE",
 
 				static::UNKNOWN_910 => "UNKNOWN_910",
-				static::UNKNOWN_1000 => "UNKNOWN_1000",
+				static::OVERCHARGE => "OVERCHARGE",
 			];
 		}
 
