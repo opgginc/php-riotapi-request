@@ -60,8 +60,6 @@
 		const RANKED_FLEX_SR = 440; // Ranked Flex Summoner's Rift games
 		const ASSASSINATE_5x5 = 600; // Blood Hunt Assassin games
 		const DARKSTAR_3x3 = 610; // Dark Star games
-		const VCP_NORMAL = 980; // Star Guardian Invasion: Normal games
-		const VCP_ONSLAUGHT = 990; // Star Guardian Invasion: Onslaught games
 
 		const NORMAL_BLIND_SR = 430; // Summoner's Rift 5v5 Blind Pick games
 		const ARAM_5x5_NEW = 450; // ARAM games
@@ -73,15 +71,17 @@
 		const BOT_SR_INTRO = 830; // Summoner's Rift Co-op vs. AI Intro Bot games
 		const BOT_SR_BEGINNER = 840; // Summoner's Rift Co-op vs. AI Beginner Bot games
 		const BOT_SR_INTERMEDIATE = 850; // Summoner's Rift Co-op vs. AI Intermediate Bot games
-		const SIEGE_NEW = 940; // Nexus Siege games (315)
 
+		const CS_ASCENSION = 910; // Ascension games
+		const HA_POROKING = 9990; // Legend of the Poro King games
+		const SIEGE_NEW = 940; // Nexus Siege games (315)
 		const BOT_SR_NIGHTMARE_DIF = 950; // Doom Bots games /w difficulty voting (기존 91, 92, 93)
 		const BOT_SR_NIGHTMARE = 960; // Doom Bots games
+		const VCP_NORMAL = 980; // Star Guardian Invasion: Normal games
+		const VCP_ONSLAUGHT = 990; // Star Guardian Invasion: Onslaught games
 
-		const UNKNOWN_910 = 910;
-		const UNKNOWN_920 = 920;
 		const UNKNOWN_700 = 700;
-		const OVERCHARGE = 1000;
+		const OVERCHARGE = 1000; // PROJECT: Hunters games
 
 		public static $NORMALS = [
 			self::NORMAL_3x3,
@@ -160,6 +160,8 @@
 			self::BOT_SR_NIGHTMARE,
 			self::BOT_SR_NIGHTMARE_DIF,
 			self::OVERCHARGE,
+			self::CS_ASCENSION,
+			self::HA_POROKING,
 		];
 
 		/** @var integer */
@@ -264,10 +266,10 @@
 				static::BOT_SR_NIGHTMARE_DIF => "BOT_SR_NIGHTMARE_DIF",
 				static::BOT_SR_NIGHTMARE     => "BOT_SR_NIGHTMARE",
 
-				static::UNKNOWN_910 => "UNKNOWN_910",
-				static::UNKNOWN_920 => "UNKNOWN_920",
-				static::OVERCHARGE => "OVERCHARGE",
-				static::UNKNOWN_700 => "UNKNOWN_700",
+				static::CS_ASCENSION => "CS_ASCENSION",
+				static::HA_POROKING  => "HA_POROKING",
+				static::OVERCHARGE   => "OVERCHARGE",
+				static::UNKNOWN_700  => "UNKNOWN_700",
 			];
 		}
 
