@@ -73,7 +73,7 @@
 		const BOT_SR_INTERMEDIATE = 850; // Summoner's Rift Co-op vs. AI Intermediate Bot games
 
 		const CS_ASCENSION = 910; // Ascension games
-		const HA_POROKING = 9990; // Legend of the Poro King games
+		const HA_POROKING = 920; // Legend of the Poro King games
 		const SIEGE_NEW = 940; // Nexus Siege games (315)
 		const BOT_SR_NIGHTMARE_DIF = 950; // Doom Bots games /w difficulty voting (기존 91, 92, 93)
 		const BOT_SR_NIGHTMARE = 960; // Doom Bots games
