@@ -35,7 +35,6 @@
 				static::OCE(),
 				static::TR(),
 				static::RU(),
-				static::PBE(),
 			];
 		}
 
