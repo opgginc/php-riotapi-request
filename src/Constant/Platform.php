@@ -19,6 +19,26 @@
 		/** @var string */
 		public $platform, $apiHost;
 
+		/**
+		 * @return Platform[]
+		 */
+		public static function getAll() {
+			return [
+				static::BR(),
+				static::EUNE(),
+				static::EUW(),
+				static::JP(),
+				static::KR(),
+				static::LAN(),
+				static::LAS(),
+				static::NA(),
+				static::OCE(),
+				static::TR(),
+				static::RU(),
+				static::PBE(),
+			];
+		}
+
 		public static function BR() {
 			$platform           = new static();
 			$platform->region   = 'BR';
