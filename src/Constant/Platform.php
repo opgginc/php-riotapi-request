@@ -35,6 +35,12 @@
 				static::OCE(),
 				static::TR(),
 				static::RU(),
+				static::SG(),
+				static::ID(),
+				static::PH(),
+				static::TW(),
+				static::VN(),
+				static::TH(),
 			];
 		}
 
@@ -123,6 +129,54 @@
 			$platform->region   = 'RU';
 			$platform->platform = 'RU';
 			$platform->apiHost  = 'ru.api.riotgames.com';
+			return $platform;
+		}
+
+		public static function SG() {
+			$platform           = new static();
+			$platform->region   = 'SG';
+			$platform->platform = 'SG';
+			$platform->apiHost  = 'sg.api.riotgames.com';
+			return $platform;
+		}
+
+		public static function ID() {
+			$platform           = new static();
+			$platform->region   = 'ID';
+			$platform->platform = 'ID';
+			$platform->apiHost  = 'id1.api.riotgames.com';
+			return $platform;
+		}
+
+		public static function PH() {
+			$platform           = new static();
+			$platform->region   = 'PH';
+			$platform->platform = 'PH';
+			$platform->apiHost  = 'ph.api.riotgames.com';
+			return $platform;
+		}
+
+		public static function TW() {
+			$platform           = new static();
+			$platform->region   = 'TW';
+			$platform->platform = 'TW';
+			$platform->apiHost  = 'tw.api.riotgames.com';
+			return $platform;
+		}
+
+		public static function VN() {
+			$platform           = new static();
+			$platform->region   = 'VN';
+			$platform->platform = 'VN';
+			$platform->apiHost  = 'vn.api.riotgames.com';
+			return $platform;
+		}
+
+		public static function TH() {
+			$platform           = new static();
+			$platform->region   = 'TH';
+			$platform->platform = 'TH';
+			$platform->apiHost  = 'th.api.riotgames.com';
 			return $platform;
 		}
 
