@@ -10,6 +10,8 @@
 
 	class Platform
 	{
+		public static $API_HOST_PH = 'ph.api.riotgames.com';
+
 		/**
 		 * @var string
 		 * @deprecated
@@ -152,7 +154,7 @@
 			$platform           = new static();
 			$platform->region   = 'PH';
 			$platform->platform = 'PH';
-			$platform->apiHost  = 'ph.api.riotgames.com';
+			$platform->apiHost  = static::$API_HOST_PH;
 			return $platform;
 		}
 
