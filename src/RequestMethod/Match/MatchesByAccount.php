@@ -38,7 +38,7 @@
 		}
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
+			$uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
 			$uri = str_replace("{accountId}", $this->accountId, $uri);
 
 			$query = http_build_query([

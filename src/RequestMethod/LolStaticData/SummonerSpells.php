@@ -29,7 +29,7 @@
 		public $dataById;
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
+			$uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
 
 			$query = static::buildParams([
 				                             'locale'   => $this->locale,

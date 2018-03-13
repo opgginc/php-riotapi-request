@@ -19,7 +19,7 @@
 		public $path = EndPoint::SPECTATOR__FEATURED_GAMES;
 
 		public function getRequest() {
-			$uri = "https://" . $this->platform->apiHost . "" . $this->path;
+			$uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
 
 			return $this->getPsr7Request('GET', $uri);
 		}
