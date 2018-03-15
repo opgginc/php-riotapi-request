@@ -81,6 +81,7 @@
 		const VCP_ONSLAUGHT = 990; // Star Guardian Invasion: Onslaught games
 
 		const UNKNOWN_700 = 700;
+		const UNKNOWN_67 = 67;
 		const OVERCHARGE = 1000; // PROJECT: Hunters games
 		const SR_URF_SNOW = 1010; // Snow ARURF games
 
@@ -272,6 +273,7 @@
 				static::HA_POROKING  => "HA_POROKING",
 				static::OVERCHARGE   => "OVERCHARGE",
 				static::UNKNOWN_700  => "UNKNOWN_700",
+				static::UNKNOWN_67   => "UNKNOWN_67",
 				static::SR_URF_SNOW  => "SR_URF_SNOW",
 			];
 		}
