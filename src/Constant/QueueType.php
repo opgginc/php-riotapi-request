@@ -84,6 +84,7 @@
 		const UNKNOWN_67 = 67;
 		const OVERCHARGE = 1000; // PROJECT: Hunters games
 		const SR_URF_SNOW = 1010; // Snow ARURF games
+		const ONEFORALL_5x5_NEW = 1020; // One for All games
 
 		public static $NORMALS = [
 			self::NORMAL_3x3,
@@ -165,6 +166,7 @@
 			self::CS_ASCENSION,
 			self::HA_POROKING,
 			self::SR_URF_SNOW,
+			self::ONEFORALL_5x5_NEW,
 		];
 
 		/** @var integer */
@@ -275,6 +277,7 @@
 				static::UNKNOWN_700  => "UNKNOWN_700",
 				static::UNKNOWN_67   => "UNKNOWN_67",
 				static::SR_URF_SNOW  => "SR_URF_SNOW",
+				static::ONEFORALL_5x5_NEW  => "ONEFORALL_5x5_NEW",
 			];
 		}
 
