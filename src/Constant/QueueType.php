@@ -80,7 +80,7 @@
 		const VCP_NORMAL = 980; // Star Guardian Invasion: Normal games
 		const VCP_ONSLAUGHT = 990; // Star Guardian Invasion: Onslaught games
 
-		const UNKNOWN_700 = 700;
+		const CLASH_GAMES = 700;  // Clash games
 		const UNKNOWN_67 = 67;
 		const OVERCHARGE = 1000; // PROJECT: Hunters games
 		const SR_URF_SNOW = 1010; // Snow ARURF games
@@ -271,13 +271,13 @@
 				static::BOT_SR_NIGHTMARE_DIF => "BOT_SR_NIGHTMARE_DIF",
 				static::BOT_SR_NIGHTMARE     => "BOT_SR_NIGHTMARE",
 
-				static::CS_ASCENSION => "CS_ASCENSION",
-				static::HA_POROKING  => "HA_POROKING",
-				static::OVERCHARGE   => "OVERCHARGE",
-				static::UNKNOWN_700  => "UNKNOWN_700",
-				static::UNKNOWN_67   => "UNKNOWN_67",
-				static::SR_URF_SNOW  => "SR_URF_SNOW",
-				static::ONEFORALL_5x5_NEW  => "ONEFORALL_5x5_NEW",
+				static::CS_ASCENSION      => "CS_ASCENSION",
+				static::HA_POROKING       => "HA_POROKING",
+				static::OVERCHARGE        => "OVERCHARGE",
+				static::CLASH_GAMES       => "CLASH_GAMES",
+				static::UNKNOWN_67        => "UNKNOWN_67",
+				static::SR_URF_SNOW       => "SR_URF_SNOW",
+				static::ONEFORALL_5x5_NEW => "ONEFORALL_5x5_NEW",
 			];
 		}
 
