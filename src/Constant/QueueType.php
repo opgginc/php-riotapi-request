@@ -167,6 +167,7 @@
 			self::HA_POROKING,
 			self::SR_URF_SNOW,
 			self::ONEFORALL_5x5_NEW,
+			self::CLASH_GAMES,
 		];
 
 		/** @var integer */
