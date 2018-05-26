@@ -72,6 +72,7 @@
 		const BOT_SR_BEGINNER = 840; // Summoner's Rift Co-op vs. AI Beginner Bot games
 		const BOT_SR_INTERMEDIATE = 850; // Summoner's Rift Co-op vs. AI Intermediate Bot games
 
+		const ARURF = 900; // SR_AR_URF
 		const CS_ASCENSION = 910; // Ascension games
 		const HA_POROKING = 920; // Legend of the Poro King games
 		const SIEGE_NEW = 940; // Nexus Siege games (315)
@@ -165,6 +166,7 @@
 			self::OVERCHARGE,
 			self::CS_ASCENSION,
 			self::HA_POROKING,
+			self::ARURF,
 			self::SR_URF_SNOW,
 			self::ONEFORALL_5x5_NEW,
 			self::CLASH_GAMES,
@@ -272,6 +274,7 @@
 				static::BOT_SR_NIGHTMARE_DIF => "BOT_SR_NIGHTMARE_DIF",
 				static::BOT_SR_NIGHTMARE     => "BOT_SR_NIGHTMARE",
 
+				static::ARURF             => "ARURF",
 				static::CS_ASCENSION      => "CS_ASCENSION",
 				static::HA_POROKING       => "HA_POROKING",
 				static::OVERCHARGE        => "OVERCHARGE",
