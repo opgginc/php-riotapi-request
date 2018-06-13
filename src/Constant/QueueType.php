@@ -86,6 +86,7 @@
 		const OVERCHARGE = 1000; // PROJECT: Hunters games
 		const SR_URF_SNOW = 1010; // Snow ARURF games
 		const ONEFORALL_5x5_NEW = 1020; // One for All games
+		const UNKNOWN_2000 = 2000;
 		const UNKNOWN_2010 = 2010;
 		const UNKNOWN_2020 = 2020;
 
@@ -284,6 +285,7 @@
 				static::UNKNOWN_67        => "UNKNOWN_67",
 				static::SR_URF_SNOW       => "SR_URF_SNOW",
 				static::ONEFORALL_5x5_NEW => "ONEFORALL_5x5_NEW",
+				static::UNKNOWN_2000      => "UNKNOWN_2000",
 				static::UNKNOWN_2010      => "UNKNOWN_2010",
 				static::UNKNOWN_2020      => "UNKNOWN_2020",
 			];
