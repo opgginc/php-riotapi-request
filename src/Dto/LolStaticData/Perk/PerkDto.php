@@ -6,16 +6,20 @@
 
 	class PerkDto extends BaseDto
 	{
-		/** @var string */
-		public $name;
-		/** @var string[] */
-		public $tags;
-		/** @var \RiotQuest\Dto\LolStaticData\ImageDto */
-		public $image;
-		/** @var string */
-		public $sanitizedDescription;
 		/** @var int */
 		public $id;
 		/** @var string */
-		public $description;
+		public $key;
+		/** @var string */
+		public $name;
+		/** @var string */
+		public $shortDesc;
+		/** @var string */
+		public $longDesc;
+		/** @var string */
+		public $icon;
+		/** @var int */
+		public $runePathId;
+		/** @var string */
+		public $runePathName;
 	}

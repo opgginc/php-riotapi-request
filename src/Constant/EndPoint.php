@@ -50,8 +50,8 @@
 		const LOL_STATIC_DATA__RUNE = "/lol/static-data/v3/runes/{id}";
 		const LOL_STATIC_DATA__SUMMONER_SPELLS = "/lol/static-data/v3/summoner-spells";
 		const LOL_STATIC_DATA__SUMMONER_SPELL = "/lol/static-data/v3/summoner-spells/{id}";
-		const LOL_STATIC_DATA__PERKS = "/lol/static-data/v3/perks";
-		const LOL_STATIC_DATA__PERK = "/lol/static-data/v3/perks/{id}";
+		const LOL_STATIC_DATA__PERKS = "/lol/static-data/v3/reforged-runes";
+		const LOL_STATIC_DATA__PERK = "/lol/static-data/v3/reforged-runes/{id}";
 		const LOL_STATIC_DATA__VERSIONS = "/lol/static-data/v3/versions";
 		const LOL_STATUS__SHARED_DATA = "/lol/status/v3/shard-data";
 	}

@@ -10,6 +10,4 @@
 		public $data;
 		/** @var string */
 		public $version;
-		/** @var string */
-		public $type;
 	}

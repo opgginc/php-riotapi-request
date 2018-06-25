@@ -3,6 +3,7 @@
 	namespace RiotQuest\RequestMethod\LolStaticData;
 
 	use RiotQuest\Constant\EndPoint;
+	use RiotQuest\Dto\LolStaticData\Perk\PerkDto;
 	use RiotQuest\Dto\LolStaticData\Perk\PerkListDto;
 	use RiotQuest\RequestMethod\RequestMethodAbstract;
 	use GuzzleHttp\Psr7\Response;
@@ -15,16 +16,12 @@
 		/** @var string */
 		public $locale, $version;
 
-		/** @var string[] */
-		public $tags = ['all'];
-
 		public function getRequest() {
 			$uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
 
 			$query = static::buildParams([
 				                             'locale'  => $this->locale,
-				                             'version' => $this->version,
-				                             'tags'    => $this->tags,
+				                             'version' => $this->version
 			                             ]);
 
 			if (strlen($query) > 0) {
@@ -36,7 +33,17 @@
 		public function mapping(Response $response) {
 			$json = \GuzzleHttp\json_decode($response->getBody());
 
+			$perkList = new PerkListDto();
+			$perkList->version = $this->version;
+			$perkList->data = [];
+
 			$mapper = new JsonMapper();
-			return $mapper->map($json, new PerkListDto());
+			foreach ($json as $jsonRow) {
+				$perkDto = $mapper->map($jsonRow, new PerkDto());
+				if ($perkDto !== null) {
+					$perkList->data[] = $perkDto;
+				}
+			}
+			return $perkList;
 		}
 	}

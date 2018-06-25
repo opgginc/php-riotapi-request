@@ -38,12 +38,12 @@
 				static::OCE(),
 				static::TR(),
 				static::RU(),
-				static::SG(),
-				static::ID(),
-				static::PH(),
-				static::TW(),
-				static::VN(),
-				static::TH(),
+//				static::SG(),
+//				static::ID(),
+//				static::PH(),
+//				static::TW(),
+//				static::VN(),
+//				static::TH(),
 			];
 		}
 
