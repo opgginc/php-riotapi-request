@@ -34,7 +34,6 @@
 		public function mapping(Response $response) {
 			$json = \GuzzleHttp\json_decode($response->getBody(), true);
 
-//			\OPGG\Debug\PartLogger::Info(\OPGG\Debug\PartLogger::LOGGER_RENEW_STATIC_DATA, $response->getBody());
 			$perkPaths = new PerkPathsDto();
 			$perkPaths->version = $this->version;
 			$perkPaths->data = [];
