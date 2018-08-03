@@ -10,45 +10,63 @@
 
 	use RiotQuest\Constant\EndPoint;
 	use RiotQuest\Dto\LolStaticData\SummonerSpell\SummonerSpellListDto;
-	use RiotQuest\RequestMethod\Request;
+	use RiotQuest\Dto\LolStaticData\SummonerSpell\SummonerSpellDto;
 	use RiotQuest\RequestMethod\RequestMethodAbstract;
 	use GuzzleHttp\Psr7\Response;
 	use JsonMapper;
 
 	class SummonerSpells extends RequestMethodAbstract
 	{
-		public $path = EndPoint::LOL_STATIC_DATA__SUMMONER_SPELLS;
+		public $path = EndPoint::LOL_STATIC_DATA_DDRAGON_SUMMONER_SPELLS;
 
 		/** @var string */
 		public $locale, $version;
 
-		/** @var string[] */
-		public $tags = ['all'];
-
-		/** @var bool If specified as true, the returned data map will use the champions' IDs as the keys. If not specified or specified as false, the returned data map will use the champions' keys instead. */
-		public $dataById;
-
 		public function getRequest() {
-			$uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
+			$uri = $this->platform->apiScheme . "://" . EndPoint::LOL_STATIC_DATA_DDRAGON_HOST . "/cdn/{$this->version}/data/{$this->locale}" . $this->path;
 
-			$query = static::buildParams([
-				                             'locale'   => $this->locale,
-				                             'version'  => $this->version,
-				                             'tags'     => $this->tags,
-				                             'dataById' => $this->dataById
-			                             ]);
-
-			if (strlen($query) > 0) {
-				$uri .= "?{$query}";
-			}
 			return $this->getPsr7Request('GET', $uri);
 		}
 
 		public function mapping(Response $response) {
-			$json = \GuzzleHttp\json_decode($response->getBody());
+			$json = \GuzzleHttp\json_decode($response->getBody(), true);
+
+			$spellList          = new SummonerSpellListDto();
+			$spellList->version = $json['version'];
+			$spellList->type    = $json['type'];
+			$spellList->data    = [];
 
 			$mapper                  = new JsonMapper();
 			$mapper->bEnforceMapType = false;
-			return $mapper->map($json, new SummonerSpellListDto());
+
+			foreach ($json['data'] as $spellKey => $spellRow) {
+
+				$jsonSpellRow = json_decode(json_encode($spellRow), true);
+
+				// fix diff between ddragon and static-data API
+				foreach ($jsonSpellRow['vars'] as &$varRow) {
+					if (!is_array($varRow['coeff'])) {
+						$varRow['coeff'] = [(int) $varRow['coeff']];
+					}
+				}
+				foreach ($jsonSpellRow['effectBurn'] as &$effectBurnRow) {
+					if ($effectBurnRow == null) {
+						$effectBurnRow = "";
+					}
+				}
+				$jsonSpellRow['sanitizedDescription'] = $jsonSpellRow['description'];
+				$jsonSpellRow['sanitizedTooltip']     = $jsonSpellRow['tooltip'];
+
+				/** @var SummonerSpellDto $spellDto */
+				$spellDto = $mapper->map($jsonSpellRow, new SummonerSpellDto());
+				if ($spellDto != null) {
+					// fix diff between ddragon and static-data API
+					$spellDto->id                   = (int) $spellDto->key;
+					$spellDto->key                  = $spellKey;
+					$spellList->data[$spellDto->id] = $spellDto;
+				}
+			}
+
+			return $spellList;
 		}
 	}

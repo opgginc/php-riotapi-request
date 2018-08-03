@@ -56,4 +56,14 @@
 		const LOL_STATIC_DATA__PERK_PATH = "/lol/static-data/v3/reforged-rune-paths/{id}";
 		const LOL_STATIC_DATA__VERSIONS = "/lol/static-data/v3/versions";
 		const LOL_STATUS__SHARED_DATA = "/lol/status/v3/shard-data";
+
+		/**
+		 * https://developer.riotgames.com/static-data.html
+		 */
+		const LOL_STATIC_DATA_DDRAGON_HOST = "ddragon.leagueoflegends.com";
+		const LOL_STATIC_DATA_DDRAGON_PERKS = "/runesReforged.json";
+		const LOL_STATIC_DATA_DDRAGON_VERSIONS = "/versions.json";
+		const LOL_STATIC_DATA_DDRAGON_SUMMONER_SPELLS = "/summoner.json";
+		const LOL_STATIC_DATA_DDRAGON_ITEMS = "/item.json";
+		const LOL_STATIC_DATA_DDRAGON_CHAMPIONS = "/championFull.json";
 	}

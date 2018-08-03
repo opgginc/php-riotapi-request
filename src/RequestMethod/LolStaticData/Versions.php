@@ -10,17 +10,16 @@
 
 	use RiotQuest\Constant\EndPoint;
 	use RiotQuest\Dto\LolStaticData\VersionListDto;
-	use RiotQuest\RequestMethod\Request;
 	use RiotQuest\RequestMethod\RequestMethodAbstract;
 	use GuzzleHttp\Psr7\Response;
 	use JsonMapper;
 
 	class Versions extends RequestMethodAbstract
 	{
-		public $path = EndPoint::LOL_STATIC_DATA__VERSIONS;
+		public $path = EndPoint::LOL_STATIC_DATA_DDRAGON_VERSIONS;
 
 		public function getRequest() {
-			$uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
+			$uri = $this->platform->apiScheme . "://" . EndPoint::LOL_STATIC_DATA_DDRAGON_HOST . "/api" . $this->path;
 
 			return $this->getPsr7Request('GET', $uri);
 		}

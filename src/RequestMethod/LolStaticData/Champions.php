@@ -10,46 +10,71 @@
 
 	use RiotQuest\Constant\EndPoint;
 	use RiotQuest\Dto\LolStaticData\Champion\ChampionListDto;
-	use RiotQuest\RequestMethod\Request;
+	use RiotQuest\Dto\LolStaticData\Champion\ChampionDto;
 	use RiotQuest\RequestMethod\RequestMethodAbstract;
 	use GuzzleHttp\Psr7\Response;
 	use JsonMapper;
 
 	class Champions extends RequestMethodAbstract
 	{
-		public $path = EndPoint::LOL_STATIC_DATA__CHAMPIONS;
+		public $path = EndPoint::LOL_STATIC_DATA_DDRAGON_CHAMPIONS;
 
 		/** @var string */
 		public $locale, $version;
 
-		/** @var string[] */
-		public $tags = ['all'];
-
-		/** @var bool If specified as true, the returned data map will use the champions' IDs as the keys. If not specified or specified as false, the returned data map will use the champions' keys instead. */
-		public $dataById;
-
 		public function getRequest() {
-			$uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
+			$uri = $this->platform->apiScheme . "://" . EndPoint::LOL_STATIC_DATA_DDRAGON_HOST . "/cdn/{$this->version}/data/{$this->locale}" . $this->path;
 
-			$query = static::buildParams([
-				                             'locale'   => $this->locale,
-				                             'version'  => $this->version,
-				                             'tags'     => $this->tags,
-				                             'dataById' => $this->dataById
-			                             ]);
-
-			if (strlen($query) > 0) {
-				$uri .= "?{$query}";
-			}
 			return $this->getPsr7Request('GET', $uri);
 		}
 
 		public function mapping(Response $response) {
-			$json = \GuzzleHttp\json_decode($response->getBody());
+			$json = \GuzzleHttp\json_decode($response->getBody(), true);
 
 			$mapper                  = new JsonMapper();
 			$mapper->bEnforceMapType = false;
 
-			return $mapper->map($json, new ChampionListDto());
+			$championList          = new ChampionListDto();
+			$championList->version = $json['version'];
+			$championList->type    = $json['type'];
+			$championList->format  = $json['format'];
+
+			$championList->keys = [];
+			$championList->data = [];
+
+			foreach ($json['data'] as $champKey => $champRow) {
+				$jsonChampRow = json_decode(json_encode($champRow), true);
+
+				foreach ($jsonChampRow['spells'] as &$spellRow) {
+					// fix diff between ddragon and static-data API
+					foreach ($spellRow['vars'] as &$varRow) {
+						if (!is_array($varRow['coeff'])) {
+							$varRow['coeff'] = [(double) $varRow['coeff']];
+						}
+					}
+					foreach ($spellRow['effectBurn'] as &$effectBurnRow) {
+						if ($effectBurnRow == null) {
+							$effectBurnRow = "";
+						}
+					}
+					$spellRow['key'] = $spellRow['id'];
+					unset($spellRow['id']);
+
+					$spellRow['sanitizedDescription'] = $spellRow['description'];
+					$spellRow['sanitizedTooltip']     = $spellRow['tooltip'];
+				}
+
+				/** @var ChampionDto $championDto */
+				$championDto = $mapper->map($jsonChampRow, new ChampionDto());
+				if ($championDto != null) {
+					$championDto->id  = (int) $champRow['key'];
+					$championDto->key = $champKey;
+				}
+
+				$championList->keys[$championDto->id] = $championDto->key;
+				$championList->data[$championDto->id] = $championDto;
+			}
+
+			return $championList;
 		}
 	}

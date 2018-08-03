@@ -10,42 +10,70 @@
 
 	use RiotQuest\Constant\EndPoint;
 	use RiotQuest\Dto\LolStaticData\Item\ItemListDto;
-	use RiotQuest\RequestMethod\Request;
+	use RiotQuest\Dto\LolStaticData\Item\ItemDto;
+	use RiotQuest\Dto\LolStaticData\Item\ItemTreeDto;
+	use RiotQuest\Dto\LolStaticData\Item\GroupDto;
 	use RiotQuest\RequestMethod\RequestMethodAbstract;
 	use GuzzleHttp\Psr7\Response;
 	use JsonMapper;
 
 	class Items extends RequestMethodAbstract
 	{
-		public $path = EndPoint::LOL_STATIC_DATA__ITEMS;
+		public $path = EndPoint::LOL_STATIC_DATA_DDRAGON_ITEMS;
 
 		/** @var string */
 		public $locale, $version;
 
-		/** @var string[] */
-		public $tags = ['all'];
-
 		public function getRequest() {
-			$uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
+			$uri = $this->platform->apiScheme . "://" . EndPoint::LOL_STATIC_DATA_DDRAGON_HOST . "/cdn/{$this->version}/data/{$this->locale}" . $this->path;
 
-			$query = static::buildParams([
-				                             'locale'  => $this->locale,
-				                             'version' => $this->version,
-				                             'tags'    => $this->tags
-			                             ]);
-
-			if (strlen($query) > 0) {
-				$uri .= "?{$query}";
-			}
 			return $this->getPsr7Request('GET', $uri);
 		}
 
 		public function mapping(Response $response) {
-			$json = \GuzzleHttp\json_decode($response->getBody());
+			$json = \GuzzleHttp\json_decode($response->getBody(), true);
+
+			$itemList          = new ItemListDto();
+			$itemList->version = $json['version'];
+			$itemList->type    = $json['type'];
+			$itemList->data    = [];
+			$itemList->tree    = [];
+			$itemList->groups  = [];
 
 			$mapper                  = new JsonMapper();
 			$mapper->bEnforceMapType = false;
 
-			return $mapper->map($json, new ItemListDto());
+			foreach ($json['data'] as $itemKey => $itemRow) {
+				$jsonItemRow = json_decode(json_encode($itemRow), true);
+
+				/** @var ItemDto $itemDto */
+				$itemDto = $mapper->map($jsonItemRow, new ItemDto());
+				if ($itemDto != null) {
+					$itemDto->id                   = (int) $itemKey;
+					$itemDto->sanitizedDescription = $itemDto->description;
+					$itemList->data[$itemKey]      = $itemDto;
+				}
+			}
+
+			foreach ($json['tree'] as $treeRow) {
+				$jsonTreeRow = json_decode(json_encode($treeRow), true);
+
+				/** @var ItemTreeDto $treeDto */
+				$treeDto          = $mapper->map($jsonTreeRow, new ItemTreeDto());
+				$itemList->tree[] = $treeDto;
+			}
+
+			foreach ($json['groups'] as $groupRow) {
+				$jsonGroupRow = json_decode(json_encode($groupRow), true);
+
+				$jsonGroupRow['key'] = $jsonGroupRow['id'];
+				unset($jsonGroupRow['id']);
+
+				/** @var GroupDto $groupDto */
+				$groupDto           = $mapper->map($jsonGroupRow, new GroupDto());
+				$itemList->groups[] = $groupDto;
+			}
+
+			return $itemList;
 		}
 	}
