@@ -91,6 +91,12 @@
 		const UNKNOWN_2010 = 2010;
 		const UNKNOWN_2020 = 2020;
 
+		const UNKNOWN_1030 = 1030;
+		const UNKNOWN_1040 = 1040;
+		const UNKNOWN_1050 = 1050;
+		const UNKNOWN_1060 = 1060;
+		const UNKNOWN_1070 = 1070;
+
 		public static $NORMALS = [
 			self::NORMAL_3x3,
 			self::NORMAL_5x5_DRAFT,
@@ -290,6 +296,13 @@
 				static::UNKNOWN_2000      => "UNKNOWN_2000",
 				static::UNKNOWN_2010      => "UNKNOWN_2010",
 				static::UNKNOWN_2020      => "UNKNOWN_2020",
+
+				static::UNKNOWN_1030      => "UNKNOWN_1030",
+				static::UNKNOWN_1040      => "UNKNOWN_1040",
+				static::UNKNOWN_1050      => "UNKNOWN_1050",
+				static::UNKNOWN_1060      => "UNKNOWN_1060",
+				static::UNKNOWN_1070      => "UNKNOWN_1070",
+
 			];
 		}
 
