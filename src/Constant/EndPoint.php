@@ -57,6 +57,8 @@
 		const LOL_STATIC_DATA__VERSIONS = "/lol/static-data/v3/versions";
 		const LOL_STATUS__SHARED_DATA = "/lol/status/v3/shard-data";
 
+		const CHAMPION__ROTATIONS = "/lol/platform/v3/champion-rotations";
+
 		/**
 		 * https://developer.riotgames.com/static-data.html
 		 */
