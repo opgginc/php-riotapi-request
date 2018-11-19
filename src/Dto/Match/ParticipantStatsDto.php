@@ -227,6 +227,13 @@
 		public $perk5Var3;
 
 		/** @var int */
+		public $statPerk0;
+		/** @var int */
+		public $statPerk1;
+		/** @var int */
+		public $statPerk2;
+
+		/** @var int */
 		public $perkPrimaryStyle;
 		/** @var int */
 		public $perkSubStyle;
