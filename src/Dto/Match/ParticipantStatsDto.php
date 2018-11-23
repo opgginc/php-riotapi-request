@@ -237,4 +237,7 @@
 		public $perkPrimaryStyle;
 		/** @var int */
 		public $perkSubStyle;
+
+		/** @var int */
+		public $longestTimeSpentLiving;
 	}
