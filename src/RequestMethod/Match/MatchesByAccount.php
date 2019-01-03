@@ -20,7 +20,11 @@
 	{
 		public $path = EndPoint::MATCH__LIST_BY_ACCOUNT;
 
+		/** @deprecated */
 		public $accountId;
+
+		/** @var string */
+		public $encryptedAccountId;
 
 		/** @var \DateTime */
 		public $beginTime, $endTime;
@@ -31,15 +35,15 @@
 		/** @var integer */
 		public $beginIndex, $endIndex;
 
-		function __construct(Platform $platform, $accountId) {
+		function __construct(Platform $platform, $encryptedAccountId) {
 			parent::__construct($platform);
 
-			$this->accountId = $accountId;
+			$this->encryptedAccountId = $encryptedAccountId;
 		}
 
 		public function getRequest() {
 			$uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
-			$uri = str_replace("{accountId}", $this->accountId, $uri);
+			$uri = str_replace("{encryptedAccountId}", $this->encryptedAccountId, $uri);
 
 			$query = http_build_query([
 				                          'beginTime'  => ($this->beginTime ? $this->beginTime->getTimestamp() * 1000 : null),

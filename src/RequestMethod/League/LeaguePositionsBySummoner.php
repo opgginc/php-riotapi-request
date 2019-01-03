@@ -20,17 +20,20 @@
 	{
 		public $path = EndPoint::LEAGUE__POSITIONS_BY_SUMMONER;
 
+		/** @deprecated */
 		public $summonerId;
 
-		function __construct(Platform $platform, $summonerId) {
+		public $encryptedSummonerId;
+
+		function __construct(Platform $platform, $encryptedSummonerId) {
 			parent::__construct($platform);
 
-			$this->summonerId = $summonerId;
+			$this->encryptedSummonerId = $encryptedSummonerId;
 		}
 
 		public function getRequest() {
 			$uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
-			$uri = str_replace("{summonerId}", $this->summonerId, $uri);
+			$uri = str_replace("{encryptedSummonerId}", $this->encryptedSummonerId, $uri);
 
 			return $this->getPsr7Request('GET', $uri);
 		}

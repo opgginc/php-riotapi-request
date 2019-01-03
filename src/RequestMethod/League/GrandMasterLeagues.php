@@ -3,7 +3,7 @@
 	 * Created by PhpStorm.
 	 * User: kargnas
 	 * Date: 2017-06-30
-	 * Time: 08:02
+	 * Time: 08:34
 	 */
 
 	namespace RiotQuest\RequestMethod\League;
@@ -16,21 +16,21 @@
 	use GuzzleHttp\Psr7\Response;
 	use JsonMapper;
 
-	class LeagueBySummoner extends RequestMethodAbstract
+	class GrandMasterLeagues extends RequestMethodAbstract
 	{
-		public $path = EndPoint::LEAGUE__LEAGUES_BY_SUMMONER;
+		public $path = EndPoint::LEAGUE__CHALLENGER_LEAGUES_BY_QUEUE;
 
-		public $summonerId;
+		public $queue;
 
-		function __construct(Platform $platform, $summonerId) {
+		function __construct(Platform $platform, $queue) {
 			parent::__construct($platform);
 
-			$this->summonerId = $summonerId;
+			$this->queue = $queue;
 		}
 
 		public function getRequest() {
 			$uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
-			$uri = str_replace("{summonerId}", $this->summonerId, $uri);
+			$uri = str_replace("{queue}", $this->queue, $uri);
 
 			return $this->getPsr7Request('GET', $uri);
 		}
@@ -40,10 +40,6 @@
 
 			$mapper = new JsonMapper();
 
-			$items = [];
-			foreach ($json as $key => $val) {
-				$items[] = $mapper->map($val, new LeagueListDTO());
-			}
-			return $items;
+			return $mapper->map($json, new LeagueListDTO());
 		}
 	}

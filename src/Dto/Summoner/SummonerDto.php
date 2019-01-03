@@ -10,6 +10,18 @@
 
 	use RiotQuest\Dto\BaseDto;
 
+    /**
+     * The API uses 3 types of IDs for players: summoner IDs, account IDs, and PUUIDs.
+     *
+     * Different APIs use different ID types, and you should use whichever type is required by the API you are using.
+     * Summoner and account IDs are only unique per region, and PUUIDs are unique globally.
+     *
+     * As of API v4, all IDs are encrypted using encryption keys unique to each project.
+     * An ID obtained with your dev key will not work with your production key (and vice versa).
+     *
+     * Class SummonerDto
+     * @package RiotQuest\Dto\SummonerV4
+     */
 	class SummonerDto extends BaseDto
 	{
 		/** @var int */
@@ -18,17 +30,20 @@
 		/** @var string */
 		public $name; // Summoner name.
 
+		/** @var string */
+		public $puuid; // PUUID.
+
 		/** @var double */
 		public $summonerLevel; // Summoner level associated with the summoner.
 
 		/** @var \RiotQuest\Dto\DateTime */
 		public $revisionDate; // Date summoner was last modified specified as epoch milliseconds. The following events will update this timestamp: profile icon change, playing the tutorial or advanced tutorial, finishing a game, summoner name change
 
-		/** @var double */
-		public $id; // Summoner ID.
+		/** @var string */
+		public $id; // Encrypted Summoner ID.
 
-		/** @var double */
-		public $accountId; // Account ID.
+		/** @var string */
+		public $accountId; // Encrypted Account ID.
 
 		/**
 		 * @param $summonerName

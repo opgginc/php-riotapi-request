@@ -18,21 +18,16 @@
 		public $championId;
 		/** @var string    The summoner name of this participant */
 		public $summonerName;
-		/** @var Rune[]    The runes used by this participant */
-		public $runes;
 		/** @var boolean    Flag indicating whether or not this participant is a bot */
 		public $bot;
 		/** @var double    The team ID of this participant, indicating the participant's team */
 		public $teamId;
 		/** @var double    The ID of the second summoner spell used by this participant */
 		public $spell2Id;
-		/** @var Mastery[]    The masteries used by this participant */
-		public $masteries;
 		/** @var double    The ID of the first summoner spell used by this participant */
 		public $spell1Id;
-		/** @var double    The summoner ID of this participant */
+		/** @var string    The encrypted summoner ID of this participant */
 		public $summonerId;
-		/** @var Perk    The perks used by this participant */
+		/** @var Perks    The perks used by this participant */
 		public $perks;
-
 	}

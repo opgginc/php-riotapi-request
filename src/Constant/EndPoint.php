@@ -14,29 +14,32 @@ class EndPoint
      * 상수 이름에는 특별한 규칙이 존재하지 않는다. 중복만 되지 않게 하면 된다.
      * 값은 {parameterName} 으로 구성한다. 첨부되어 있는 엑셀파일에서 편집 후 붙여넣기하여서 IntelliJ 의 멀티커서 기능을 이용하면 편집이 용이하다.
      */
-    const SUMMONER__SUMMONERS_BY_ACCOUNT = "/lol/summoner/v3/summoners/by-account/{accountId}";
-    const SUMMONER__SUMMONERS_BY_NAME    = "/lol/summoner/v3/summoners/by-name/{summonerName}";
-    const SUMMONER__BY_SUMMONER          = "/lol/summoner/v3/summoners/{summonerId}";
+    const SUMMONER__SUMMONERS_BY_ACCOUNT = "/lol/summoner/v4/summoners/by-account/{encryptedAccountId}";
+    const SUMMONER__SUMMONERS_BY_NAME    = "/lol/summoner/v4/summoners/by-name/{summonerName}";
+    const SUMMONER__SUMMONERS_BY_PUUID   = "/lol/summoner/v4/summoners/by-puuid/{encryptedPUUID}";
+    const SUMMONER__BY_SUMMONER          = "/lol/summoner/v4/summoners/{encryptedSummonerId}";
 
-    const MATCH__BY_MATCH               = "/lol/match/v3/matches/{matchId}";
-    const MATCH__LIST_BY_ACCOUNT        = "/lol/match/v3/matchlists/by-account/{accountId}";
-    const MATCH__RECENT_LIST_BY_ACCOUNT = "/lol/match/v3/matchlists/by-account/{accountId}/recent";
-    const MATCH__TIMELINE_BY_MATCH      = "/lol/match/v3/timelines/by-match/{matchId}";
+    const MATCH__BY_MATCH               = "/lol/match/v4/matches/{matchId}";
+    const MATCH__LIST_BY_ACCOUNT        = "/lol/match/v4/matchlists/by-account/{encryptedAccountId}";
+    const MATCH__TIMELINE_BY_MATCH      = "/lol/match/v4/timelines/by-match/{matchId}";
 
-    const SPECTATOR__ACTIVE_GAMES_BY_SUMMONER = "/lol/spectator/v3/active-games/by-summoner/{summonerId}";
-    const SPECTATOR__FEATURED_GAMES           = "/lol/spectator/v3/featured-games";
+    const SPECTATOR__ACTIVE_GAMES_BY_SUMMONER = "/lol/spectator/v4/active-games/by-summoner/{encryptedSummonerId}";
+    const SPECTATOR__FEATURED_GAMES           = "/lol/spectator/v4/featured-games";
 
-    const LEAGUE__CHALLENGER_LEAGUES_BY_QUEUE = "/lol/league/v3/challengerleagues/by-queue/{queue}";
-    const LEAGUE__LEAGUES                     = "/lol/league/v3/leagues/{leagueId}";
-    const LEAGUE__LEAGUES_BY_SUMMONER         = "/lol/league/v3/leagues/by-summoner/{summonerId}";
-    const LEAGUE__MASTER_LEAGUES_BY_QUEUE     = "/lol/league/v3/masterleagues/by-queue/{queue}";
-    const LEAGUE__POSITIONS_BY_SUMMONER       = "/lol/league/v3/positions/by-summoner/{summonerId}";
+    const LEAGUE__CHALLENGER_LEAGUES_BY_QUEUE  = "/lol/league/v4/challengerleagues/by-queue/{queue}";
+    const LEAGUE__GRANDMASTER_LEAGUES_BY_QUEUE = "/lol/league/v4/grandmasterleagues/by-queue/{queue}";
+    const LEAGUE__LEAGUES                      = "/lol/league/v4/leagues/{leagueId}";
+    const LEAGUE__MASTER_LEAGUES_BY_QUEUE      = "/lol/league/v4/masterleagues/by-queue/{queue}";
+    const LEAGUE__POSITIONS_BY_SUMMONER        = "/lol/league/v4/positions/by-summoner/{encryptedSummonerId}";
 
     const MASTERIES__BY_SUMMONER = "/lol/platform/v3/masteries/by-summoner/{summonerId}";
     const RUNES__BY_SUMMONER     = "/lol/platform/v3/runes/by-summoner/{summonerId}";
 
+    /** @deprecated */
     const CHAMPION_MASTERY__MASTERIES_BY_SUMMONER                 = "/lol/champion-mastery/v3/champion-masteries/by-summoner/{summonerId}";
+    /** @deprecated */
     const CHAMPION_MASTERY__MASTERIES_BY_SUMMONER_AND_BY_CHAMPION = "/lol/champion-mastery/v3/champion-masteries/by-summoner/{summonerId}/by-champion/{championId}";
+    /** @deprecated */
     const CHAMPION_MASTERY__SCORES_BY_SUMMONER                    = "/lol/champion-mastery/v3/scores/by-summoner/{summonerId}";
     const CHAMPION__CHAMPIONS                                     = "/lol/platform/v3/champions";
     const CHAMPION__CHAMPION                                      = "/lol/platform/v3/champions/{id}";

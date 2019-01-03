@@ -24,14 +24,14 @@
 		public $veteran;
 		/** @var int */
 		public $losses;
+        /** @var boolean */
+        public $freshBlood;
+        /** @var string */
+        public $playerOrTeamName;
+        /** @var boolean */
+        public $inactive;
 		/** @var string */
 		public $playerOrTeamId;
-		/** @var string */
-		public $playerOrTeamName;
-		/** @var boolean */
-		public $inactive;
-		/** @var boolean */
-		public $freshBlood;
 		/** @var int */
 		public $leaguePoints;
 	}

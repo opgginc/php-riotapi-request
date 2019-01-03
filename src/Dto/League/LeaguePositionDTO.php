@@ -27,11 +27,11 @@
 		/** @var  int */
 		public $losses;
 		/** @var  string */
-		public $playerOrTeamId;
+		public $summonerId;
 		/** @var  string */
 		public $leagueName;
 		/** @var  string */
-		public $playerOrTeamName;
+		public $summonerName;
 		/** @var  boolean */
 		public $inactive;
 		/** @var  boolean */
