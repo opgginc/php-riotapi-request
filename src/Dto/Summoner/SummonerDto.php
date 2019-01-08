@@ -19,6 +19,10 @@
      * As of API v4, all IDs are encrypted using encryption keys unique to each project.
      * An ID obtained with your dev key will not work with your production key (and vice versa).
      *
+     * The max length for encrypted accountIds is 56 characters.
+     * The max length for encrypted summonerIds is 63 characters.
+     * The length for encrypted puuids should always be exactly 78 characters.
+     *
      * Class SummonerDto
      * @package RiotQuest\Dto\SummonerV4
      */
