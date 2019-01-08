@@ -42,4 +42,9 @@
 		public $leagueId;
 		/** @var  int */
 		public $leaguePoints;
+
+        /** @deprecated @var string */
+		private $playerOrTeamId;
+        /** @deprecated @var string */
+		private $playerOrTeamName;
 	}
