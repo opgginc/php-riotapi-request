@@ -10,6 +10,8 @@
 
 	class EndPoint
 	{
+		const SUMMONERV4__SUMMONERS_BY_NAME = "/lol/summoner/v4/summoners/by-name/{summonerName}";
+
 		/**
 		 * 상수 이름에는 특별한 규칙이 존재하지 않는다. 중복만 되지 않게 하면 된다.
 		 * 값은 {parameterName} 으로 구성한다. 첨부되어 있는 엑셀파일에서 편집 후 붙여넣기하여서 IntelliJ 의 멀티커서 기능을 이용하면 편집이 용이하다.
