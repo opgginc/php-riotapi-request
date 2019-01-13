@@ -14,24 +14,31 @@
 	{
 		/** @var string */
 		public $rank;
+		/** @var int */
+		public $wins;
+		/** @var int */
+		public $leaguePoints;
+		/** @var string */
+		public $summonerId;
+		/** @var string */
+		public $summonerName;
+
+		// I can't see these attrs in v4.. maybe bugs
+		/** @var boolean */
+		public $inactive;
 		/** @var boolean */
 		public $hotStreak;
 		/** @var MiniSeriesDTO */
 		public $miniSeries;
-		/** @var int */
-		public $wins;
 		/** @var boolean */
 		public $veteran;
 		/** @var int */
 		public $losses;
-        /** @var boolean */
-        public $freshBlood;
-        /** @var string */
-        public $playerOrTeamName;
-        /** @var boolean */
-        public $inactive;
-		/** @var string */
+		/** @var boolean */
+		public $freshBlood;
+
+		/** @deprecated @var string */
+		public $playerOrTeamName;
+		/** @deprecated @var string */
 		public $playerOrTeamId;
-		/** @var int */
-		public $leaguePoints;
 	}
