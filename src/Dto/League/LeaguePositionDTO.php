@@ -42,4 +42,6 @@
 		public $leagueId;
 		/** @var  int */
 		public $leaguePoints;
+		/** @var string */
+		public $position;
 	}
