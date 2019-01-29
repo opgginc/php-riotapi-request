@@ -11,6 +11,7 @@
 	class EndPoint
 	{
 		const SUMMONERV4__SUMMONERS_BY_NAME = "/lol/summoner/v4/summoners/by-name/{summonerName}";
+		const LEAGUEV4__POSITIONS_BY_SUMMONER = "/lol/league/v4/positions/by-summoner/{encryptedSummonerId}";
 
 		/**
 		 * 상수 이름에는 특별한 규칙이 존재하지 않는다. 중복만 되지 않게 하면 된다.
