@@ -44,10 +44,6 @@
 		public $leaguePoints;
 		/** @var string */
 		public $position;
-		/** @var string encryptedSummonerId */
-		public $summonerId;
-		/** @var string */
-		public $summonerName;
 
 		/** @deprecated @var string */
 		private $playerOrTeamId;
