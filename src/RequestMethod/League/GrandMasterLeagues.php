@@ -18,7 +18,7 @@
 
 	class GrandMasterLeagues extends RequestMethodAbstract
 	{
-		public $path = EndPoint::LEAGUE__CHALLENGER_LEAGUES_BY_QUEUE;
+		public $path = EndPoint::LEAGUE__GRANDMASTER_LEAGUES_BY_QUEUE;
 
 		public $queue;
 
