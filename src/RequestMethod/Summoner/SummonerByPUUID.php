@@ -15,29 +15,21 @@
 	use RiotQuest\Dto\Summoner\SummonerDto;
 	use RiotQuest\RequestMethod\RequestMethodAbstract;
 
-	/**
-	 * Class SummonersById
-	 * @package RiotQuest\RequestMethod\Summoner
-	 */
-	class SummonerById extends RequestMethodAbstract
+	class SummonerByPUUID extends RequestMethodAbstract
 	{
-		public $path = EndPoint::SUMMONER__BY_SUMMONER;
+		public $path = EndPoint::SUMMONER__SUMMONERS_BY_ACCOUNT;
 
-		/** @deprecated */
-		public $id;
+		public $encryptedPUUID;
 
-		/** @var string */
-		public $encryptedSummonerId;
-
-		function __construct(Platform $platform, $encryptedSummonerId) {
+		function __construct(Platform $platform, $encryptedPUUID) {
 			parent::__construct($platform);
 
-			$this->encryptedSummonerId = $encryptedSummonerId;
+			$this->encryptedPUUID = $encryptedPUUID;
 		}
 
 		public function getRequest() {
 			$uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
-			$uri = str_replace("{encryptedSummonerId}", $this->encryptedSummonerId, $uri);
+			$uri = str_replace("{encryptedPUUID}", $this->encryptedPUUID, $uri);
 
 			return $this->getPsr7Request('GET', $uri);
 		}

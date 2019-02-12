@@ -4,7 +4,7 @@
 
 	use RiotQuest\Dto\BaseDto;
 
-	class Perk extends BaseDto
+	class Perks extends BaseDto
 	{
 		/** @var double[] */
 		public $perkIds;

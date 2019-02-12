@@ -20,12 +20,12 @@
 		public $matchHistoryUri;
 		/** @var string */
 		public $platformId;
-		/** @var double */
+		/** @var string Player's current accountId (Encrypted) */
 		public $currentAccountId;
-		/** @var int */
+		/** @var int Player's summonerId (Encrypted) */
 		public $profileIcon;
-		/** @var double */
+		/** @var string */
 		public $summonerId;
-		/** @var double */
+		/** @var string Player's original accountId (Encrypted) */
 		public $accountId;
 	}

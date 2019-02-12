@@ -19,17 +19,21 @@
 	{
 		public $path = EndPoint::SUMMONER__SUMMONERS_BY_ACCOUNT;
 
+		/** @deprecated */
 		public $accountId;
 
-		function __construct(Platform $platform, $accountId) {
+		/** @var string */
+		public $encryptedAccountId;
+
+		function __construct(Platform $platform, $encryptedAccountId) {
 			parent::__construct($platform);
 
-			$this->accountId = $accountId;
+			$this->encryptedAccountId = $encryptedAccountId;
 		}
 
 		public function getRequest() {
 			$uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
-			$uri = str_replace("{accountId}", $this->accountId, $uri);
+			$uri = str_replace("{encryptedAccountId}", $this->encryptedAccountId, $uri);
 
 			return $this->getPsr7Request('GET', $uri);
 		}
