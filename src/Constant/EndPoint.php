@@ -18,6 +18,7 @@
 		const SUMMONER__SUMMONERS_BY_NAME = "/lol/summoner/v4/summoners/by-name/{summonerName}";
 		const SUMMONER__SUMMONERS_BY_PUUID = "/lol/summoner/v4/summoners/by-puuid/{encryptedPUUID}";
 		const SUMMONER__BY_SUMMONER = "/lol/summoner/v4/summoners/{encryptedSummonerId}";
+		const SUMMONERV3__BY_SUMMONER = "/lol/summoner/v3/summoners/{summonerId}";
 
 		const MATCH__BY_MATCH = "/lol/match/v4/matches/{matchId}";
 		const MATCH__LIST_BY_ACCOUNT = "/lol/match/v4/matchlists/by-account/{encryptedAccountId}";
