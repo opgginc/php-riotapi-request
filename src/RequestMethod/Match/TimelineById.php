@@ -11,6 +11,7 @@
 	use RiotQuest\Constant\EndPoint;
 	use RiotQuest\Constant\Platform;
 	use RiotQuest\Dto\Match\Timeline\MatchTimelineDto;
+	use RiotQuest\Exception\UnknownException;
 	use RiotQuest\RequestMethod\Request;
 	use RiotQuest\RequestMethod\RequestMethodAbstract;
 	use GuzzleHttp\Psr7\Response;
@@ -36,7 +37,15 @@
 		}
 
 		public function mapping(Response $response) {
-			$json = \GuzzleHttp\json_decode($response->getBody());
+			$sizeLimit = 1024 * 500;
+
+			$responseBody = $response->getBody();
+			$responseSize = strlen($responseBody);
+			if ($responseSize > $sizeLimit) {
+				$responseBody = null;
+				throw new UnknownException("Timeline response data is too big. size = " . $responseSize);
+			}
+			$json = \GuzzleHttp\json_decode($responseBody);
 
 			$mapper = new JsonMapper();
 
