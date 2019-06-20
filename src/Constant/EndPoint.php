@@ -31,7 +31,9 @@
 		const LEAGUE__GRANDMASTER_LEAGUES_BY_QUEUE = "/lol/league/v4/grandmasterleagues/by-queue/{queue}";
 		const LEAGUE__LEAGUES = "/lol/league/v4/leagues/{leagueId}";
 		const LEAGUE__MASTER_LEAGUES_BY_QUEUE = "/lol/league/v4/masterleagues/by-queue/{queue}";
-		const LEAGUE__POSITIONS_BY_SUMMONER = "/lol/league/v4/positions/by-summoner/{encryptedSummonerId}";
+
+		//TODO: change to LEAGUE__ENTRIES_BY_SUMMONER, 2019.06.20
+		const LEAGUE__POSITIONS_BY_SUMMONER = "/lol/league/v4/entries/by-summoner/{encryptedSummonerId}";
 		const LEAGUE__POSITIONS = "/lol/league/v4/positions/{positionalQueue}/{tier}/{division}/{position}/{page}";
 
 		const MASTERIES__BY_SUMMONER = "/lol/platform/v3/masteries/by-summoner/{summonerId}";
