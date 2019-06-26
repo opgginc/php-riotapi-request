@@ -34,7 +34,10 @@
 
 		//TODO: change to LEAGUE__ENTRIES_BY_SUMMONER, 2019.06.20
 		const LEAGUE__POSITIONS_BY_SUMMONER = "/lol/league/v4/entries/by-summoner/{encryptedSummonerId}";
+		/** @deprecated */
 		const LEAGUE__POSITIONS = "/lol/league/v4/positions/{positionalQueue}/{tier}/{division}/{position}/{page}";
+
+		const LEAGUE__ENTRIES = "/lol/league/v4/entries/{queue}/{tier}/{division}";
 
 		const MASTERIES__BY_SUMMONER = "/lol/platform/v3/masteries/by-summoner/{summonerId}";
 		const RUNES__BY_SUMMONER = "/lol/platform/v3/runes/by-summoner/{summonerId}";
