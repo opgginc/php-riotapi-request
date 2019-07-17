@@ -13,6 +13,7 @@
 		const QUEUE_RANKED_SOLO = 'RANKED_SOLO_5x5';
 		const QUEUE_RANKED_FLEX_SR = 'RANKED_FLEX_SR';
 		const QUEUE_RANKED_FLEX_TT = 'RANKED_FLEX_TT';
+		const QUEUE_RANKED_TFT = 'RANKED_TFT';
 
 		// Previous season 6
 		const RANKED_TEAM_3x3 = 'RANKED_TEAM_3x3';
