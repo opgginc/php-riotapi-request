@@ -27,6 +27,7 @@
 		const PRESEASON2019 = 12;
 		const SEASON2019 = 13;
 		const PRESEASON2020 = 14;
+		const SEASON2020 = 15;
 
 		protected static function Map() {
 			return [
