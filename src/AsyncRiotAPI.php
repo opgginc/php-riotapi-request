@@ -166,7 +166,8 @@
 
 						                 return $asyncRequest->getPromise($client);
 					                 });
-				                 }, $this->requests), [
+				                 }, $this->requests),
+                                 [
 					                 'concurrency' => $this->concurrency,
 					                 'fulfilled'   => function (Response $response, $index) {
 						                 $this->requests[$index]->tried++;
@@ -178,8 +179,12 @@
 
 						                 // 재시도 할 필요 없으면, 실패 리퀘스트를 날려준다.
 						                 if (!$this->shouldRetry($this->requests[$index]->tried, $requestException)) {
+                                             // HttpStatus 403 Error인 경우 디버깅을 위해 API Key의 마지막 값을 추가로 전달한다.
+                                             $explodedApiKey = explode("-", $this->apiKey);
+                                             $shortApiKey = $explodedApiKey[count($explodedApiKey)-1];
+
 							                 $this->requests[$index]->markFinished = true;
-							                 $this->requests[$index]->onFail($requestException);
+							                 $this->requests[$index]->onFail($requestException, $shortApiKey);
 						                 }
 					                 }
 				                 ]);

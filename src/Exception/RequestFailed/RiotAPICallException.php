@@ -49,7 +49,7 @@
 		 *
 		 * @return RiotAPICallException
 		 */
-		public static function ByGuzzleRequestException(\GuzzleHttp\Exception\RequestException $requestException) {
+		public static function ByGuzzleRequestException(\GuzzleHttp\Exception\RequestException $requestException, $shortApiKey) {
 			if ($response = $requestException->getResponse()) {
 				if (400 <= $response->getStatusCode() && $response->getStatusCode() <= 499) {
 					switch($response->getStatusCode()) {
@@ -60,6 +60,11 @@
 						case 429:
 							return new Request429LimitExceedException($requestException->getMessage(), $requestException);
 							break;
+
+						// 403 Forbidden Error에 대한 구분 처리 추가 (디버깅용)
+                        case 403:
+                            return new \RiotQuest\Exception\RequestFailed\RequestException($requestException->getMessage()."/ API Key last value : ".$shortApiKey, $requestException);
+                            break;
 
 						default:
 							return new \RiotQuest\Exception\RequestFailed\RequestException($requestException->getMessage(), $requestException);

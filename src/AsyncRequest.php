@@ -80,14 +80,16 @@
 			return $res;
 		}
 
-		public function onFail(RequestException $requestException) {
-			$exception = RiotAPICallException::ByGuzzleRequestException($requestException);
+		public function onFail(RequestException $requestException, $shortApiKey) {
+
+			$exception = RiotAPICallException::ByGuzzleRequestException($requestException, $shortApiKey);
 
 			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_FAIL__BEFORE_CALLBACK, [$exception]);
 
 			$cb  = $this->callbackFail;
-			$res = $cb($exception);
+			$res = $cb($exception, $shortApiKey);  // 사실상 $cb(콜백)을 호출하면 아래 스크립트는 동작하지 않고 종료 된다.
 
+			// 위에서 콜백함수를 실행시켜 아래 EventDispatcher 및 return 코드는 도달하지 않는다.
 			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_FAIL__AFTER_CALLBACK, [$this]);
 			return $res;
 		}
