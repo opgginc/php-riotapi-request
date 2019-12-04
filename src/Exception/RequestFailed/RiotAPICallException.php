@@ -61,6 +61,7 @@
                             return new Request429LimitExceedException($requestException->getMessage(), $requestException);
                             break;
 
+                        // 403 에러는 확인이 필요해서 디버깅용 메세지를 추가함
                         case 403:
                             return new \RiotQuest\Exception\RequestFailed\RequestException($requestException->getMessage()." / ".$debugInfo, $requestException);
                             break;
