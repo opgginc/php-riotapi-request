@@ -88,6 +88,7 @@
 			$cb  = $this->callbackFail;
 			$res = $cb($exception);
 
+			// 위의 cb(콜백) 호출로 인해 아래 EventDispatcher 및 return 까지 도달하진 않음
 			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_FAIL__AFTER_CALLBACK, [$this]);
 			return $res;
 		}
