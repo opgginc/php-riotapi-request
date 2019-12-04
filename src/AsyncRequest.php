@@ -80,8 +80,8 @@
 			return $res;
 		}
 
-		public function onFail(RequestException $requestException) {
-			$exception = RiotAPICallException::ByGuzzleRequestException($requestException);
+		public function onFail(RequestException $requestException, $debugInfo) {
+			$exception = RiotAPICallException::ByGuzzleRequestException($requestException, $debugInfo);
 
 			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_FAIL__BEFORE_CALLBACK, [$exception]);
 

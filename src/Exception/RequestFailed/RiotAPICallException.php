@@ -49,7 +49,7 @@
 		 *
 		 * @return RiotAPICallException
 		 */
-		public static function ByGuzzleRequestException(\GuzzleHttp\Exception\RequestException $requestException) {
+		public static function ByGuzzleRequestException(\GuzzleHttp\Exception\RequestException $requestException, $debugInfo) {
 			if ($response = $requestException->getResponse()) {
 				if (400 <= $response->getStatusCode() && $response->getStatusCode() <= 499) {
 					switch($response->getStatusCode()) {
@@ -58,8 +58,12 @@
 							break;
 
 						case 429:
-							return new Request429LimitExceedException($requestException->getMessage(), $requestException);
-							break;
+                            return new Request429LimitExceedException($requestException->getMessage(), $requestException);
+                            break;
+
+                        case 403:
+                            return new \RiotQuest\Exception\RequestFailed\RequestException($requestException->getMessage()." / ".$debugInfo, $requestException);
+                            break;
 
 						default:
 							return new \RiotQuest\Exception\RequestFailed\RequestException($requestException->getMessage(), $requestException);

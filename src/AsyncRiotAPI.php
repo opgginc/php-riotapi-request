@@ -178,8 +178,12 @@
 
 						                 // 재시도 할 필요 없으면, 실패 리퀘스트를 날려준다.
 						                 if (!$this->shouldRetry($this->requests[$index]->tried, $requestException)) {
+
+                                             $ApiKeyLastWord = explode("-", $this->apiKey)[count(explode("-", $this->apiKey))-1];
+                                             $debugInfo = $ApiKeyLastWord;
+
 							                 $this->requests[$index]->markFinished = true;
-							                 $this->requests[$index]->onFail($requestException);
+							                 $this->requests[$index]->onFail($requestException, $debugInfo);
 						                 }
 					                 }
 				                 ]);
