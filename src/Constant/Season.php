@@ -46,6 +46,7 @@
 				static::PRESEASON2019 => "PRESEASON2019",
 				static::SEASON2019    => "SEASON2019",
 				static::PRESEASON2020 => "PRESEASON2020",
+				static::SEASON2020    => "SEASON2020",
 			];
 		}
 
