@@ -55,10 +55,14 @@
 		 * @return string
 		 */
 		public static function InternalName($summonerName) {
+		    // 참고 : https://ko.wikipedia.org/wiki/%CE%A3
+            // mb_strtolower의 경우 대소문자 구분이 있는 특수문자 까지도 소문자로 변환하고 있어
+            // 검색하고자 하는 유저명이 다르게 변환되는 사례가 발생하여 mb_strtolower가 아닌 strtolower를 사용하고 이후 UTF-8로 환 처리함
+            // Σ -> σ
 			return trim(str_replace([
 				                        ' ', '/', "\t", "\r", "\n", // Riot policy
 				                        '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', '-', '.', ',', '<', '>', '?', '\'', ';', '[', ']', '{', '}', '`', '\\' // invalid strings
-			                        ], '', mb_strtolower($summonerName, 'UTF-8')));
+			                        ], '', mb_convert_encoding(strtolower($summonerName), "UTF-8")));
 		}
 
 		/**
