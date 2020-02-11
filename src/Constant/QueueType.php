@@ -147,6 +147,12 @@
 			self::BOT_SR_NIGHTMARE_DIF,
 		];
 
+        public static $TUTORIAL = [
+            self::UNKNOWN_2000,
+            self::UNKNOWN_2010,
+            self::UNKNOWN_2020,
+        ];
+
 		public static $ARAM = [
 			self::ARAM_5x5,
 			self::ARAM_5x5_NEW,
@@ -292,6 +298,7 @@
 				static::UNKNOWN_67        => "UNKNOWN_67",
 				static::SR_URF_SNOW       => "SR_URF_SNOW",
 				static::ONEFORALL_5x5_NEW => "ONEFORALL_5x5_NEW",
+
 				static::UNKNOWN_1200      => "UNKNOWN_1200",
 				static::UNKNOWN_2000      => "UNKNOWN_2000",
 				static::UNKNOWN_2010      => "UNKNOWN_2010",
@@ -321,6 +328,8 @@
 		public function isRankedTeam() { return in_array($this->id, static::$RANKED_TEAM, true); }
 
 		public function isBot() { return in_array($this->id, static::$BOT, true); }
+
+		public function isTutorial() { return in_array($this->id, static::$TUTORIAL, true); }
 
 		public function isAram() { return in_array($this->id, static::$ARAM, true); }
 
