@@ -72,7 +72,7 @@
 		 * @return bool
 		 */
 		public function isRemake() {
-			return $this->gameDuration < 300;
+			return $this->queueId != QueueType::UNKNOWN_2000 && $this->gameDuration < 300;
 		}
 
 		/**
