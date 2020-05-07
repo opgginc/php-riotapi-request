@@ -71,6 +71,7 @@
 		const BOT_SR_INTRO = 830; // Summoner's Rift Co-op vs. AI Intro Bot games
 		const BOT_SR_BEGINNER = 840; // Summoner's Rift Co-op vs. AI Beginner Bot games
 		const BOT_SR_INTERMEDIATE = 850; // Summoner's Rift Co-op vs. AI Intermediate Bot games
+		const UNKNOWN_860 = 860; //
 
 		const ARURF = 900; // SR_AR_URF
 		const CS_ASCENSION = 910; // Ascension games
@@ -299,6 +300,7 @@
 				static::SR_URF_SNOW       => "SR_URF_SNOW",
 				static::ONEFORALL_5x5_NEW => "ONEFORALL_5x5_NEW",
 
+				static::UNKNOWN_860       => "UNKNOWN_860",
 				static::UNKNOWN_1200      => "UNKNOWN_1200",
 				static::UNKNOWN_2000      => "UNKNOWN_2000",
 				static::UNKNOWN_2010      => "UNKNOWN_2010",
