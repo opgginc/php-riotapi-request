@@ -98,6 +98,8 @@
 		const UNKNOWN_1060 = 1060;
 		const UNKNOWN_1070 = 1070;
 
+		const NEXUS_BLITZ = 1300; // NEXUS_BLITZ games 10.15.1 patch
+
 		public static $NORMALS = [
 			self::NORMAL_3x3,
 			self::NORMAL_5x5_DRAFT,
@@ -187,6 +189,7 @@
 			self::SR_URF_SNOW,
 			self::ONEFORALL_5x5_NEW,
 			self::CLASH_GAMES,
+			self::NEXUS_BLITZ,
 		];
 
 		/** @var integer */
@@ -311,6 +314,8 @@
 				static::UNKNOWN_1050      => "UNKNOWN_1050",
 				static::UNKNOWN_1060      => "UNKNOWN_1060",
 				static::UNKNOWN_1070      => "UNKNOWN_1070",
+
+				static::NEXUS_BLITZ      => "NEXUS_BLITZ",
 
 			];
 		}
