@@ -28,6 +28,8 @@
 		const SEASON2019 = 13;
 		const PRESEASON2020 = 14;
 		const SEASON2020 = 15;
+		const PRESEASON2021 = 16;
+		const SEASON2021 = 17;
 
 		protected static function Map() {
 			return [
@@ -47,6 +49,8 @@
 				static::SEASON2019    => "SEASON2019",
 				static::PRESEASON2020 => "PRESEASON2020",
 				static::SEASON2020    => "SEASON2020",
+				static::PRESEASON2021 => "PRESEASON2021",
+				static::SEASON2021    => "SEASON2021",
 			];
 		}
 
