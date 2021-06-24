@@ -15,6 +15,7 @@
 	use GuzzleHttp\Psr7\Response;
 	use JsonMapper;
 
+	/** @deprecated */
 	class MatchById extends RequestMethodAbstract
 	{
 		public $path = EndPoint::MATCH__BY_MATCH;

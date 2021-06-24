@@ -16,6 +16,7 @@
 	use GuzzleHttp\Psr7\Response;
 	use JsonMapper;
 
+    /** @deprecated */
 	class MatchesByAccount extends RequestMethodAbstract
 	{
 		public $path = EndPoint::MATCH__LIST_BY_ACCOUNT;

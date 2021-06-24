@@ -340,6 +340,8 @@
 
 		public function isAram() { return in_array($this->id, static::$ARAM, true); }
 
+        public function isClash() { return $this->id == QueueType::CLASH_GAMES; }
+
 		function __construct($id, $name) {
 			$this->id   = $id;
 			$this->name = $name;

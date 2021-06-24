@@ -1,44 +1,41 @@
 <?php
-	/**
-	 * Created by PhpStorm.
-	 * User: kargnas
-	 * Date: 2017-06-26
-	 * Time: 03:41
-	 */
-
-	namespace RiotQuest\RequestMethod\Match;
+	namespace RiotQuest\RequestMethod\MatchV5;
 
 	use RiotQuest\Constant\EndPoint;
 	use RiotQuest\Constant\Platform;
-	use RiotQuest\Dto\Match\Timeline\MatchTimelineDto;
-	use RiotQuest\Exception\UnknownException;
+    use RiotQuest\Constant\Region;
+    use RiotQuest\Dto\MatchV5\TimelineDto;
+    use RiotQuest\Exception\UnknownException;
 	use RiotQuest\RequestMethod\Request;
 	use RiotQuest\RequestMethod\RequestMethodAbstract;
 	use GuzzleHttp\Psr7\Response;
 	use JsonMapper;
 
-    /** @deprecated */
 	class TimelineById extends RequestMethodAbstract
 	{
-		public $path = EndPoint::MATCH__TIMELINE_BY_MATCH;
+		public $path = EndPoint::MATCHV5__TIMELINE_BY_MATCHID;
 
-		public $id;
+		public $matchId;
 
-		function __construct(Platform $platform, $id) {
-			parent::__construct($platform);
+		function __construct(Platform $platform, $matchId) {
+            parent::setPlatform(Platform::convertContinentPlatform($platform));
 
-			$this->id = $id;
+            if (in_array(explode('_', $matchId)[0], Region::$ORIGIN_REGIONS)) {
+                $this->matchId = $matchId;
+            } else {
+                $this->matchId = $platform->region . '_' . $matchId;
+            }
 		}
 
 		public function getRequest() {
 			$uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
-			$uri = str_replace("{matchId}", $this->id, $uri);
+			$uri = str_replace("{matchId}", $this->matchId, $uri);
 
 			return $this->getPsr7Request('GET', $uri);
 		}
 
 		public function mapping(Response $response) {
-			$sizeLimit = 1024 * 500;
+			$sizeLimit = 1024 * 800;
 
 			$responseBody = $response->getBody();
 			$responseSize = strlen($responseBody);
@@ -50,8 +47,8 @@
 
 			$mapper = new JsonMapper();
 
-			/** @var MatchTimelineDto $object */
-			$object = $mapper->map($json, new MatchTimelineDto());
+			/** @var TimelineDto $object */
+			$object = $mapper->map($json, new TimelineDto());
 			return $object;
 		}
 	}

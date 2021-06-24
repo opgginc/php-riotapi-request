@@ -20,9 +20,16 @@
 		const SUMMONER__BY_SUMMONER = "/lol/summoner/v4/summoners/{encryptedSummonerId}";
 		const SUMMONERV3__BY_SUMMONER = "/lol/summoner/v3/summoners/{summonerId}";
 
+        /** @deprecated */
 		const MATCH__BY_MATCH = "/lol/match/v4/matches/{matchId}";
+        /** @deprecated */
 		const MATCH__LIST_BY_ACCOUNT = "/lol/match/v4/matchlists/by-account/{encryptedAccountId}";
+        /** @deprecated */
 		const MATCH__TIMELINE_BY_MATCH = "/lol/match/v4/timelines/by-match/{matchId}";
+
+		const MATCHV5__LIST_BY_PUUID = "/lol/match/v5/matches/by-puuid/{puuid}/ids";
+		const MATCHV5__BY_MATCHID = "/lol/match/v5/matches/{matchId}";
+		const MATCHV5__TIMELINE_BY_MATCHID = "/lol/match/v5/matches/{matchId}/timeline";
 
 		const SPECTATOR__ACTIVE_GAMES_BY_SUMMONER = "/lol/spectator/v4/active-games/by-summoner/{encryptedSummonerId}";
 		const SPECTATOR__FEATURED_GAMES = "/lol/spectator/v4/featured-games";
