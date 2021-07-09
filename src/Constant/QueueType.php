@@ -99,6 +99,7 @@
 		const UNKNOWN_1070 = 1070;
 
 		const NEXUS_BLITZ = 1300; // NEXUS_BLITZ games 10.15.1 patch
+		const ULTIMATE_SPELLBOOK = 1400; // Ultimate Spellbook games 11.14.1 patch
 
 		public static $NORMALS = [
 			self::NORMAL_3x3,
@@ -190,6 +191,7 @@
 			self::ONEFORALL_5x5_NEW,
 			self::CLASH_GAMES,
 			self::NEXUS_BLITZ,
+			self::ULTIMATE_SPELLBOOK,
 		];
 
 		/** @var integer */
@@ -315,7 +317,8 @@
 				static::UNKNOWN_1060      => "UNKNOWN_1060",
 				static::UNKNOWN_1070      => "UNKNOWN_1070",
 
-				static::NEXUS_BLITZ      => "NEXUS_BLITZ",
+				static::NEXUS_BLITZ             => "NEXUS_BLITZ",
+				static::ULTIMATE_SPELLBOOK      => "ULTIMATE_SPELLBOOK",
 
 			];
 		}
