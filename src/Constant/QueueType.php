@@ -192,7 +192,6 @@
 			self::CLASH_GAMES,
 			self::NEXUS_BLITZ,
 			self::ULTIMATE_SPELLBOOK,
-
 		];
 
 		/** @var integer */
