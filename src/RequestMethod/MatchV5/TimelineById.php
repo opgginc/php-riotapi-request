@@ -35,7 +35,7 @@
 		}
 
 		public function mapping(Response $response) {
-			$sizeLimit = 1024 * 800;
+			$sizeLimit = 1024 * 2000;
 
 			$responseBody = $response->getBody();
 			$responseSize = strlen($responseBody);
