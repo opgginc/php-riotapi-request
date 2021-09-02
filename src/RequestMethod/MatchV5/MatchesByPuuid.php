@@ -11,10 +11,13 @@
 		public $path = EndPoint::MATCHV5__LIST_BY_PUUID;
 
 		/** @var string */
-		public $puuid;
+		public $puuid, $type;
 
         /** @var int */
-        public $start, $count;
+        public $start, $count, $queue;
+
+        /** @var int */
+        public $startTime, $endTime;
 
 		function __construct(Platform $platform, $puuid) {
 			parent::setPlatform(Platform::convertContinentPlatform($platform));
@@ -27,8 +30,12 @@
 			$uri = str_replace("{puuid}", $this->puuid, $uri);
 
             $query = http_build_query([
+                'startTime' => $this->startTime,
+                'endTime' => $this->endTime,
+                'queue' => $this->queue,
                 'start' => $this->start,
                 'count'   => $this->count,
+                'type'   => $this->type,
             ]);
 
             if (strlen($query) > 0) {
