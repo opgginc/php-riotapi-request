@@ -64,12 +64,10 @@
          * @return int|float
          */
         public function getGameDurationSecond() {
-            $length = strlen((string)$this->gameDuration);
-            // If the gameDuration exceeds 6 digits and the unit is not milliseconds, the minimum value of 100,000 seconds is about 27 hours or more.
-            // It is highly likely that 6 digits or more are in milliseconds.
-            if ($length >= 6) {
-                return $this->gameDuration / 1000;
+            if (strlen((string)$this->gameDuration) >= 6) {
+                return (int)($this->gameDuration / 1000);
             }
+
             return $this->gameDuration;
         }
 
