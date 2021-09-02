@@ -244,7 +244,7 @@
             return $platform;
         }
 
-        public function setRegion(Region $region) {
+        public function setRegion($region) {
 		    $this->region = $region;
 		    return $this;
         }
