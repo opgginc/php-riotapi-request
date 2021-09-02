@@ -1,7 +1,8 @@
 <?php
 	namespace RiotQuest\RequestMethod\MatchV5;
 
-	use GuzzleHttp\Psr7\Response;
+	use DateTime;
+    use GuzzleHttp\Psr7\Response;
     use RiotQuest\Constant\EndPoint;
     use RiotQuest\Constant\Platform;
     use RiotQuest\RequestMethod\RequestMethodAbstract;
@@ -16,7 +17,7 @@
         /** @var int */
         public $start, $count, $queue;
 
-        /** @var int */
+        /** @var DateTime */
         public $startTime, $endTime;
 
 		function __construct(Platform $platform, $puuid) {
@@ -30,8 +31,8 @@
 			$uri = str_replace("{puuid}", $this->puuid, $uri);
 
             $query = http_build_query([
-                'startTime' => $this->startTime,
-                'endTime' => $this->endTime,
+                'startTime' => ($this->startTime ? $this->startTime->getTimestamp() * 1000 : null),
+                'endTime' => ($this->endTime ? $this->endTime->getTimestamp() * 1000 : null),
                 'queue' => $this->queue,
                 'start' => $this->start,
                 'count'   => $this->count,

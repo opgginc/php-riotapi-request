@@ -8,7 +8,8 @@
 
 	namespace RiotQuest\RequestMethod\Match;
 
-	use RiotQuest\Constant\EndPoint;
+	use DateTime;
+    use RiotQuest\Constant\EndPoint;
 	use RiotQuest\Constant\Platform;
 	use RiotQuest\Dto\Match\MatchlistDto;
 	use RiotQuest\RequestMethod\Request;
@@ -27,7 +28,7 @@
 		/** @var string */
 		public $encryptedAccountId;
 
-		/** @var \DateTime */
+		/** @var DateTime */
 		public $beginTime, $endTime;
 
 		/** @var integer */
