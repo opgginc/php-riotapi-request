@@ -65,6 +65,8 @@
         /** @var int */
         public $inhibitorKills;
         /** @var int */
+        public $inhibitorTakedowns;
+        /** @var int */
         public $inhibitorsLost;
         /** @var int */
         public $item0;
@@ -106,6 +108,8 @@
         public $neutralMinionsKilled;
         /** @var int */
         public $nexusKills;
+        /** @var int */
+        public $nexusTakedowns;
         /** @var int */
         public $nexusLost;
         /** @var int */
@@ -194,6 +198,8 @@
         public $trueDamageTaken;
         /** @var int */
         public $turretKills;
+        /** @var int */
+        public $turretTakedowns;
         /** @var int */
         public $turretsLost;
         /** @var int */

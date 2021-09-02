@@ -38,6 +38,8 @@
         public $participants;
 		/** @var TeamDto[] */
         public $teams;
+        /** @var string */
+        public $tournamentCode;
 
         /**
          * gameDuration is protected
