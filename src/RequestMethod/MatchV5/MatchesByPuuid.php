@@ -31,8 +31,8 @@
 			$uri = str_replace("{puuid}", $this->puuid, $uri);
 
             $query = http_build_query([
-                'startTime' => ($this->startTime ? $this->startTime->getTimestamp() * 1000 : null),
-                'endTime' => ($this->endTime ? $this->endTime->getTimestamp() * 1000 : null),
+                'startTime' => ($this->startTime ? $this->startTime->getTimestamp() : null),
+                'endTime' => ($this->endTime ? $this->endTime->getTimestamp() : null),
                 'queue' => $this->queue,
                 'start' => $this->start,
                 'count'   => $this->count,
