@@ -18,10 +18,10 @@
 		function __construct(Platform $platform, $matchId) {
             parent::setPlatform(Platform::convertContinentPlatform($platform));
 
-            if (in_array(explode('_', $matchId)[0], Region::$ORIGIN_REGIONS)) {
+            if (count(explode('_', $matchId)) > 1) {
 			    $this->matchId = $matchId;
             } else {
-                $this->matchId = $platform->region . '_' . $matchId;
+                $this->matchId = $platform->platform . '_' . $matchId;
             }
 		}
 
