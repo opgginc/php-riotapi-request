@@ -66,11 +66,7 @@
          * @return int|float
          */
         public function getGameDurationSecond() {
-            if (strlen((string)$this->gameDuration) >= 6) {
-                return (int)($this->gameDuration / 1000);
-            }
-
-            return $this->gameDuration;
+            return (int)($this->gameDuration / 1000);
         }
 
 		/**
