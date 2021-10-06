@@ -34,6 +34,8 @@
         public $gameCreation;
         /** @var \RiotQuest\Dto\DateTime */
         public $gameStartTimestamp;
+        /** @var \RiotQuest\Dto\DateTime */
+        public $gameEndTimestamp;
         /** @var ParticipantDto[] */
         public $participants;
 		/** @var TeamDto[] */
@@ -66,6 +68,10 @@
          * @return int|float
          */
         public function getGameDurationSecond() {
+            if ($this->gameStartTimestamp && $this->gameEndTimestamp) {
+                return (int)($this->gameEndTimestamp->getTimestamp() - $this->gameStartTimestamp->getTimestamp());
+            }
+
             return (int)($this->gameDuration / 1000);
         }
 
