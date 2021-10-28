@@ -194,6 +194,20 @@
 			self::ULTIMATE_SPELLBOOK,
 		];
 
+        public static $CAN_VALIDATE_POSITIONS = [
+            self::NORMAL_5x5_BLIND,
+            self::NORMAL_5x5_DRAFT,
+            self::NORMAL_BLIND_SR,
+            self::RANKED_SOLO_5x5,
+            self::RANKED_TEAM_5x5,
+            self::GROUP_FINDER_5x5,
+            self::TEAM_BUILDER_DRAFT_UNRANKED_5x5,
+            self::TEAM_BUILDER_DRAFT_RANKED_5x5,
+            self::TEAM_BUILDER_RANKED_SOLO,
+            self::RANKED_FLEX_SR,
+            self::CLASH_GAMES,
+        ];
+
 		/** @var integer */
 		public $id;
 
@@ -230,7 +244,7 @@
 			throw new UnknownQueueNameException("'{$queueName}' is unknown queue type.");
 		}
 
-		protected static function Map() {
+		public static function Map() {
 			return [
 				static::CUSTOM                          => "CUSTOM",
 				static::NORMAL_3x3                      => "NORMAL_3x3",
@@ -344,6 +358,10 @@
 		public function isAram() { return in_array($this->id, static::$ARAM, true); }
 
         public function isClash() { return $this->id == QueueType::CLASH_GAMES; }
+
+        public function isUrf() { return $this->id == QueueType::ARURF; }
+
+        public function isCustom() { return $this->id == QueueType::CUSTOM; }
 
 		function __construct($id, $name) {
 			$this->id   = $id;
