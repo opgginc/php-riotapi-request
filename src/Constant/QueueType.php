@@ -163,12 +163,17 @@
 			self::BILGEWATER_ARAM_5x5,
 		];
 
+		public static $ARURF = [
+            self::URF_5x5,
+            self::BOT_URF_5x5,
+            self::ARURF_5X5,
+            self::ARURF,
+            self::SR_URF_SNOW,
+        ];
+
 		public static $EVENT = [
 			self::SR_6x6,
 			self::HEXAKILL,
-			self::URF_5x5,
-			self::BOT_URF_5x5,
-			self::ARURF_5X5,
 			self::NIGHTMARE_BOT_5x5_RANK1,
 			self::NIGHTMARE_BOT_5x5_RANK2,
 			self::NIGHTMARE_BOT_5x5_RANK5,
@@ -186,8 +191,6 @@
 			self::OVERCHARGE,
 			self::CS_ASCENSION,
 			self::HA_POROKING,
-			self::ARURF,
-			self::SR_URF_SNOW,
 			self::ONEFORALL_5x5_NEW,
 			self::CLASH_GAMES,
 			self::NEXUS_BLITZ,
@@ -208,7 +211,7 @@
             self::CLASH_GAMES,
         ];
 
-		/** @var integer */
+        /** @var integer */
 		public $id;
 
 		/** @var string */
@@ -359,7 +362,7 @@
 
         public function isClash() { return $this->id == QueueType::CLASH_GAMES; }
 
-        public function isUrf() { return $this->id == QueueType::ARURF; }
+        public function isUrf() { return in_array($this->id, static::$ARURF, true); }
 
         public function isCustom() { return $this->id == QueueType::CUSTOM; }
 
