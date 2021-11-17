@@ -56,7 +56,7 @@
 		const TEAM_BUILDER_DRAFT_UNRANKED_5x5 = 400; // Normal 5v5 Draft Pick games
 		const TEAM_BUILDER_DRAFT_RANKED_5x5 = 410; // Ranked 5v5 Draft Pick games
 		const TEAM_BUILDER_RANKED_SOLO = 420; // Ranked Solo games from current season that use Team Builder matchmaking
-		const TB_BLIND_SUMMONERS_RIFT_5x5 = 430; // Normal 5v5 Blind Pick games
+		const TB_BLIND_SUMMONERS_RIFT_5x5 = 430; // Normal 5v5 Blind Pick games // duple
 		const RANKED_FLEX_SR = 440; // Ranked Flex Summoner's Rift games
 		const ASSASSINATE_5x5 = 600; // Blood Hunt Assassin games
 		const DARKSTAR_3x3 = 610; // Dark Star games
