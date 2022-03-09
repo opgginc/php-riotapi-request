@@ -10,23 +10,24 @@
 
 	use RiotQuest\Exception\UnknownException;
 	use GuzzleHttp\Exception\ConnectException;
+	use GuzzleHttp\Exception\RequestException;
+    use GuzzleHttp\Exception\GuzzleException;
 
 	class RiotAPICallException extends UnknownException
 	{
-		/** @var \GuzzleHttp\Exception\RequestException */
-		private $requestException = null;
+		private $exception = null;
 
 		function __construct(
-			$message = null,
-			\GuzzleHttp\Exception\RequestException $requestException
+            $message = null,
+            GuzzleException $guzzleException
 		) {
-			parent::__construct($message, $requestException->getCode());
+			parent::__construct($message, $guzzleException->getCode());
 
-			$this->requestException = $requestException;
+			$this->exception = $guzzleException;
 		}
 
 		public function getResponseBody() {
-			if (!($response = $this->requestException->getResponse())) {
+			if (!($response = $this->exception->getResponse())) {
 				return null;
 			}
 
@@ -34,50 +35,57 @@
 		}
 
 		public function getResponseShortBody() {
-			return mb_strimwidth($this->getResponseBody(), 0, 100, '...');
+            if ($this->exception instanceof RequestException) {
+                return mb_strimwidth($this->getResponseBody(), 0, 100, '...');
+            }
+
+            return null;
 		}
 
 		/**
 		 * @return string
 		 */
 		public function getRequestURI() {
-			return (string) $this->requestException->getRequest()->getUri();
+			return (string) $this->exception->getRequest()->getUri();
 		}
 
-		/**
-		 * @param \GuzzleHttp\Exception\RequestException $requestException
-		 *
-		 * @return RiotAPICallException
-		 */
-		public static function ByGuzzleRequestException(\GuzzleHttp\Exception\RequestException $requestException, $debugInfo) {
-			if ($response = $requestException->getResponse()) {
+        /**
+         * @param GuzzleException $exception
+         *
+         * @param $debugInfo
+         * @return RiotAPICallException
+         */
+		public static function ByGuzzleException(GuzzleException $exception, $debugInfo) {
+
+            if ($exception instanceof ConnectException) {
+                return new RequestConnectException($exception->getMessage(), $exception);
+            } elseif ($exception instanceof RequestException) {
+                $response = $exception->getResponse();
 				if (400 <= $response->getStatusCode() && $response->getStatusCode() <= 499) {
 					switch($response->getStatusCode()) {
 						case 404:
-							return new Request404Exception($requestException->getMessage(), $requestException);
+							return new Request404Exception($exception->getMessage(), $exception);
 							break;
 
 						case 429:
-                            return new Request429LimitExceedException($requestException->getMessage(), $requestException);
+                            return new Request429LimitExceedException($exception->getMessage(), $exception);
                             break;
 
                         // 403 에러는 확인이 필요해서 디버깅용 메세지를 추가함
                         case 403:
-                            return new \RiotQuest\Exception\RequestFailed\RequestException($requestException->getMessage()." / ".$debugInfo, $requestException);
+                            return new \RiotQuest\Exception\RequestFailed\RequestException($exception->getMessage()." / ".$debugInfo, $exception);
                             break;
 
 						default:
-							return new \RiotQuest\Exception\RequestFailed\RequestException($requestException->getMessage(), $requestException);
+							return new \RiotQuest\Exception\RequestFailed\RequestException($exception->getMessage(), $exception);
 					}
 				} elseif ($response->getStatusCode() >= 500) {
-					return new ServerException($requestException->getMessage(), $requestException);
+					return new ServerException($exception->getMessage(), $exception);
 				} else {
-					return new \RiotQuest\Exception\RequestFailed\RequestException($requestException->getMessage(), $requestException);
+					return new \RiotQuest\Exception\RequestFailed\RequestException($exception->getMessage(), $exception);
 				}
-			} elseif ($requestException instanceof ConnectException) {
-				return new RequestConnectException($requestException->getMessage(), $requestException);
 			} else {
-				return new RiotAPICallException($requestException->getMessage(), $requestException);
+				return new RiotAPICallException($exception->getMessage(), $exception);
 			}
 		}
 	}

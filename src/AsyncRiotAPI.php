@@ -9,6 +9,7 @@
 	namespace RiotQuest;
 
 	use GuzzleHttp\Client;
+	use GuzzleHttp\Exception\GuzzleException;
 	use GuzzleHttp\Exception\ConnectException;
 	use GuzzleHttp\Exception\RequestException;
 	use GuzzleHttp\Pool;
@@ -52,33 +53,35 @@
 
 		/**
 		 * @param                       $tried
-		 * @param RequestException|null $requestException
+		 * @param GuzzleException|null $exception
 		 *
 		 * @return bool
 		 */
-		protected function shouldRetry($tried, RequestException $requestException = null) {
+		protected function shouldRetry($tried, GuzzleException $exception = null) {
 			if ($this->retryLimits !== static::RETRY_UNLIMITED && $tried >= $this->retryLimits) {
 				// NEED TO WARNING
 				return false;
 			}
 
-			if ($requestException instanceof ConnectException) {
+			if ($exception instanceof ConnectException) {
 				return true;
 			}
 
-			if ($response = $requestException->getResponse()) {
-				if ($response->getStatusCode() >= 500) {
-					return true;
-				}
+			if ($exception instanceof RequestException) {
+                if ($response = $exception->getResponse()) {
+                    if ($response->getStatusCode() >= 500) {
+                        return true;
+                    }
 
-				if ($response->getStatusCode() === 429) {
-					EventDispatcher::fire(EventDispatcher::EVENT_EXCEED_RATELIMIT, [
-						$response,
-						$requestException->getRequest(),
-					]);
-					return true;
-				}
-			}
+                    if ($response->getStatusCode() === 429) {
+                        EventDispatcher::fire(EventDispatcher::EVENT_EXCEED_RATELIMIT, [
+                            $response,
+                            $exception->getRequest(),
+                        ]);
+                        return true;
+                    }
+                }
+            }
 
 			return false;
 		}
@@ -173,17 +176,17 @@
 						                 $this->requests[$index]->markFinished = true;
 						                 $this->requests[$index]->onDone($response);
 					                 },
-					                 'rejected'    => function (RequestException $requestException, $index) {
+					                 'rejected'    => function (GuzzleException $exception, $index) {
 						                 $this->requests[$index]->tried++;
 
 						                 // 재시도 할 필요 없으면, 실패 리퀘스트를 날려준다.
-						                 if (!$this->shouldRetry($this->requests[$index]->tried, $requestException)) {
+						                 if (!$this->shouldRetry($this->requests[$index]->tried, $exception)) {
 
                                              $ApiKeyLastWord = explode("-", $this->apiKey)[count(explode("-", $this->apiKey))-1];
                                              $debugInfo = $ApiKeyLastWord;
 
 							                 $this->requests[$index]->markFinished = true;
-							                 $this->requests[$index]->onFail($requestException, $debugInfo);
+							                 $this->requests[$index]->onFail($exception, $debugInfo);
 						                 }
 					                 }
 				                 ]);

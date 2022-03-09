@@ -12,7 +12,7 @@
 	use RiotQuest\Exception\UnknownException;
 	use RiotQuest\RequestMethod\RequestMethodAbstract;
 	use GuzzleHttp\Client;
-	use GuzzleHttp\Exception\RequestException;
+	use GuzzleHttp\Exception\GuzzleException;
 	use GuzzleHttp\Psr7\Request;
 	use GuzzleHttp\Psr7\Response;
 	use GuzzleHttp\RequestOptions;
@@ -80,8 +80,8 @@
 			return $res;
 		}
 
-		public function onFail(RequestException $requestException, $debugInfo) {
-			$exception = RiotAPICallException::ByGuzzleRequestException($requestException, $debugInfo);
+		public function onFail(GuzzleException $guzzleException, $debugInfo) {
+			$exception = RiotAPICallException::ByGuzzleException($guzzleException, $debugInfo);
 
 			EventDispatcher::fire(EventDispatcher::EVENT_REQUEST_FAIL__BEFORE_CALLBACK, [$exception]);
 
