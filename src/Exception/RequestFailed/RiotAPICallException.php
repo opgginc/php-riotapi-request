@@ -61,6 +61,11 @@
                 return new RequestConnectException($exception->getMessage(), $exception);
             } elseif ($exception instanceof RequestException) {
                 $response = $exception->getResponse();
+
+                if ($response === null) {
+                    return new \RiotQuest\Exception\RequestFailed\RequestException($exception->getMessage(), $exception);
+                }
+                
 				if (400 <= $response->getStatusCode() && $response->getStatusCode() <= 499) {
 					switch($response->getStatusCode()) {
 						case 404:
