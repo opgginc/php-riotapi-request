@@ -68,7 +68,14 @@
 			}
 
 			if ($exception instanceof RequestException) {
-                if ($response = $exception->getResponse()) {
+
+                $response = $exception->getResponse();
+
+                if ($response === null) {
+                    return true;
+                }
+
+                if ($response) {
                     if ($response->getStatusCode() >= 500) {
                         return true;
                     }
