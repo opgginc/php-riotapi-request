@@ -40,7 +40,7 @@
 		 */
 		public function getRequest() {
 			$uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
-			$uri = str_replace("{summonerId}", $this->summonerId, $uri);
+			$uri = str_replace("{encryptedSummonerId}", $this->summonerId, $uri);
 
 			return $this->getPsr7Request('GET', $uri);
 		}

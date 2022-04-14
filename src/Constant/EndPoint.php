@@ -49,8 +49,7 @@
 		const MASTERIES__BY_SUMMONER = "/lol/platform/v3/masteries/by-summoner/{summonerId}";
 		const RUNES__BY_SUMMONER = "/lol/platform/v3/runes/by-summoner/{summonerId}";
 
-		/** @deprecated */
-		const CHAMPION_MASTERY__MASTERIES_BY_SUMMONER = "/lol/champion-mastery/v3/champion-masteries/by-summoner/{summonerId}";
+        const CHAMPION_MASTERY__MASTERIES_BY_SUMMONER = "/lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}";
 		/** @deprecated */
 		const CHAMPION_MASTERY__MASTERIES_BY_SUMMONER_AND_BY_CHAMPION = "/lol/champion-mastery/v3/champion-masteries/by-summoner/{summonerId}/by-champion/{championId}";
 		/** @deprecated */
