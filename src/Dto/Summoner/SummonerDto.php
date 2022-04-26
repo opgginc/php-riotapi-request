@@ -62,7 +62,7 @@
 			return trim(str_replace([
 				                        ' ', '/', "\t", "\r", "\n", // Riot policy
 				                        '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', '-', '.', ',', '<', '>', '?', '\'', ';', '[', ']', '{', '}', '`', '\\' // invalid strings
-			                        ], '', mb_convert_encoding(strtolower($summonerName), "UTF-8")));
+			                        ], '', mb_convert_encoding(mb_strtolower($summonerName), "UTF-8")));
 		}
 
 		/**
