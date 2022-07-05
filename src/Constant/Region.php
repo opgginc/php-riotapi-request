@@ -33,6 +33,7 @@
         const AMERICAS = 'AMERICAS';
         const ASIA = 'ASIA';
         const EUROPE = 'EUROPE';
+        const SEA = 'SEA';
 
         // pbe
         const PBE = 'PBE';
@@ -42,7 +43,6 @@
             self::LAN,
             self::NA,
             self::BR,
-            self::OCE,
         ];
 
         public static $CONTINENT_EUROPE = [
@@ -55,6 +55,10 @@
         public static $CONTINENT_ASIA = [
             self::KR,
             self::JP,
+        ];
+
+        public static $CONTINENT_SEA = [
+            self::OCE,
         ];
 
         public static $ORIGIN_REGIONS = [
@@ -82,6 +86,7 @@
                 self::AMERICAS => self::$CONTINENT_AMERICA,
                 self::ASIA => self::$CONTINENT_ASIA,
                 self::EUROPE => self::$CONTINENT_EUROPE,
+                self::SEA => self::$CONTINENT_SEA,
             ];
         }
 
