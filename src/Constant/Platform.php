@@ -236,6 +236,14 @@
             return $platform;
         }
 
+        public static function SEA() {
+            $platform            = new static();
+            $platform->platform  = Region::SEA;
+            $platform->apiHost   = 'sea.api.riotgames.com';
+            $platform->apiScheme = 'https';
+            return $platform;
+        }
+
         public static function convertContinentPlatform(Platform $platform) {
             $continent = Region::findContinentByRegion($platform->region);
             if ($continent) {
