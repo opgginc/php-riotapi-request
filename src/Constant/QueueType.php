@@ -74,6 +74,7 @@
 		const UNKNOWN_860 = 860; //
 
 		const ARURF = 900; // SR_AR_URF
+		const PICK_ARURF = 1900; // SR_PICK_URF
 		const CS_ASCENSION = 910; // Ascension games
 		const HA_POROKING = 920; // Legend of the Poro King games
 		const SIEGE_NEW = 940; // Nexus Siege games (315)
@@ -168,6 +169,7 @@
             self::BOT_URF_5x5,
             self::ARURF_5X5,
             self::ARURF,
+            self::PICK_ARURF,
             self::SR_URF_SNOW,
         ];
 
@@ -314,6 +316,7 @@
 				static::BOT_SR_NIGHTMARE     => "BOT_SR_NIGHTMARE",
 
 				static::ARURF             => "ARURF",
+				static::PICK_ARURF        => "ARURF",
 				static::CS_ASCENSION      => "CS_ASCENSION",
 				static::HA_POROKING       => "HA_POROKING",
 				static::OVERCHARGE        => "OVERCHARGE",
