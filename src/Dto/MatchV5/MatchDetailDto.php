@@ -81,7 +81,7 @@
 		 * @return bool
 		 */
 		public function isRemake() {
-			return !$this->getQueueType()->isTutorial() && $this->getGameDurationSecond() < 300;
+			return !$this->getQueueType()->isTutorial() && $this->getGameDurationSecond() < 210;
 		}
 
 		/**
