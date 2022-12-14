@@ -84,6 +84,8 @@
 		const VCP_ONSLAUGHT = 990; // Star Guardian Invasion: Onslaught games
 
 		const CLASH_GAMES = 700;  // Clash games
+        const CLASH_GAMES_ARAM = 720; // ARAM Clash games
+
 		const UNKNOWN_67 = 67;
 		const OVERCHARGE = 1000; // PROJECT: Hunters games
 		const SR_URF_SNOW = 1010; // Snow ARURF games
@@ -101,6 +103,11 @@
 
 		const NEXUS_BLITZ = 1300; // NEXUS_BLITZ games 10.15.1 patch
 		const ULTIMATE_SPELLBOOK = 1400; // Ultimate Spellbook games 11.14.1 patch
+
+        public static $CLASHES = [
+            self::CLASH_GAMES,
+            self::CLASH_GAMES_ARAM
+        ];
 
 		public static $NORMALS = [
 			self::NORMAL_3x3,
@@ -195,6 +202,7 @@
 			self::HA_POROKING,
 			self::ONEFORALL_5x5_NEW,
 			self::CLASH_GAMES,
+            self::CLASH_GAMES_ARAM,
 			self::NEXUS_BLITZ,
 			self::ULTIMATE_SPELLBOOK,
 		];
@@ -321,6 +329,7 @@
 				static::HA_POROKING       => "HA_POROKING",
 				static::OVERCHARGE        => "OVERCHARGE",
 				static::CLASH_GAMES       => "CLASH_GAMES",
+                static::CLASH_GAMES_ARAM  => "CLASH_GAMES_ARAM",
 				static::UNKNOWN_67        => "UNKNOWN_67",
 				static::SR_URF_SNOW       => "SR_URF_SNOW",
 				static::ONEFORALL_5x5_NEW => "ONEFORALL_5x5_NEW",
