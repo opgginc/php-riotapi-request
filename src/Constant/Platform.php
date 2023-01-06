@@ -38,12 +38,13 @@
 				static::OCE(),
 				static::TR(),
 				static::RU(),
-//				static::SG(),
-//				static::ID(),
-//				static::PH(),
-//				static::TW(),
-//				static::VN(),
-//				static::TH(),
+
+                static::PH(),
+                static::SG(),
+                static::TW(),
+                static::TH(),
+                static::VN(),
+
 				static::AMERICAS(),
 				static::ASIA(),
 				static::EUROPE(),
@@ -202,6 +203,8 @@
 			$platform->apiScheme = 'https';
 			return $platform;
 		}
+
+        /////////////////////////////////////////
 
 		public static function PBE() {
 			$platform            = new static();

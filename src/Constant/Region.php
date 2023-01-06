@@ -22,12 +22,11 @@
         const BR = 'BR';
 
         // garena
-        const SG = 'SG';
-        const ID = 'ID';
         const PH = 'PH';
+        const SG = 'SG';
         const TW = 'TW';
-        const VN = 'VN';
         const TH = 'TH';
+        const VN = 'VN';
 
         // continent
         const AMERICAS = 'AMERICAS';
@@ -78,12 +77,12 @@
             self::RU,
             self::KR,
             self::JP,
-            self::SG,
-            self::ID,
+
             self::PH,
+            self::SG,
             self::TW,
-            self::VN,
             self::TH,
+            self::VN
         ];
 
         public static function ContinentMap() {
