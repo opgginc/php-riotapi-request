@@ -10,7 +10,7 @@
 
 	class Platform
 	{
-		public static $API_HOST_PH = 'ph.api.riotgames.com';
+//		public static $API_HOST_PH = 'ph.api.riotgames.com';
 		public static $API_SCHEME_PH = 'https';
 
 		/**
@@ -152,8 +152,8 @@
 		public static function SG() {
 			$platform            = new static();
 			$platform->region    = Region::SG;
-			$platform->platform  = 'SG';
-			$platform->apiHost   = 'sg.api.riotgames.com';
+			$platform->platform  = 'SG2';
+			$platform->apiHost   = 'sg2.api.riotgames.com';
 			$platform->apiScheme = 'https';
 			return $platform;
 		}
@@ -170,17 +170,17 @@
 		public static function PH() {
 			$platform            = new static();
 			$platform->region    = Region::PH;
-			$platform->platform  = 'PH';
-			$platform->apiHost   = static::$API_HOST_PH;
-			$platform->apiScheme = 'static::$API_SCHEME_PH';
+			$platform->platform  = 'PH2';
+			$platform->apiHost   = 'ph2.api.riotgames.com';
+			$platform->apiScheme = 'https';
 			return $platform;
 		}
 
 		public static function TW() {
 			$platform            = new static();
 			$platform->region    = Region::TW;
-			$platform->platform  = 'TW';
-			$platform->apiHost   = 'tw.api.riotgames.com';
+			$platform->platform  = 'TW2';
+			$platform->apiHost   = 'tw2.api.riotgames.com';
 			$platform->apiScheme = 'https';
 			return $platform;
 		}
@@ -188,8 +188,8 @@
 		public static function VN() {
 			$platform            = new static();
 			$platform->region    = Region::VN;
-			$platform->platform  = 'VN';
-			$platform->apiHost   = 'vn.api.riotgames.com';
+			$platform->platform  = 'VN2';
+			$platform->apiHost   = 'vn2.api.riotgames.com';
 			$platform->apiScheme = 'https';
 			return $platform;
 		}
@@ -197,8 +197,8 @@
 		public static function TH() {
 			$platform            = new static();
 			$platform->region    = Region::TH;
-			$platform->platform  = 'TH';
-			$platform->apiHost   = 'th.api.riotgames.com';
+			$platform->platform  = 'TH2';
+			$platform->apiHost   = 'th2.api.riotgames.com';
 			$platform->apiScheme = 'https';
 			return $platform;
 		}

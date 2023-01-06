@@ -59,6 +59,11 @@
 
         public static $CONTINENT_SEA = [
             self::OCE,
+            self::PH,
+            self::TW,
+            self::TH,
+            self::SG,
+            self::VN,
         ];
 
         public static $ORIGIN_REGIONS = [
