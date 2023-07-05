@@ -104,6 +104,8 @@
 		const NEXUS_BLITZ = 1300; // NEXUS_BLITZ games 10.15.1 patch
 		const ULTIMATE_SPELLBOOK = 1400; // Ultimate Spellbook games 11.14.1 patch
 
+        const ARENA = 1700; // 2 vs 2 vs 2 vs 2 모드.
+
         public static $CLASHES = [
             self::CLASH_GAMES,
             self::CLASH_GAMES_ARAM
@@ -349,6 +351,7 @@
 				static::NEXUS_BLITZ             => "NEXUS_BLITZ",
 				static::ULTIMATE_SPELLBOOK      => "ULTIMATE_SPELLBOOK",
 
+                static::ARENA             => "ARENA"
 			];
 		}
 
