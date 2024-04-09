@@ -31,8 +31,8 @@
 		const MATCHV5__BY_MATCHID = "/lol/match/v5/matches/{matchId}";
 		const MATCHV5__TIMELINE_BY_MATCHID = "/lol/match/v5/matches/{matchId}/timeline";
 
-		const SPECTATOR__ACTIVE_GAMES_BY_SUMMONER = "/lol/spectator/v4/active-games/by-summoner/{encryptedSummonerId}";
-		const SPECTATOR__FEATURED_GAMES = "/lol/spectator/v4/featured-games";
+        const SPECTATOR__ACTIVE_GAMES_BY_SUMMONER = "/lol/spectator/v5/active-games/by-summoner/{encryptedPUUID}";
+        const SPECTATOR__FEATURED_GAMES = "/lol/spectator/v5/featured-games";
 
 		const LEAGUE__CHALLENGER_LEAGUES_BY_QUEUE = "/lol/league/v4/challengerleagues/by-queue/{queue}";
 		const LEAGUE__GRANDMASTER_LEAGUES_BY_QUEUE = "/lol/league/v4/grandmasterleagues/by-queue/{queue}";

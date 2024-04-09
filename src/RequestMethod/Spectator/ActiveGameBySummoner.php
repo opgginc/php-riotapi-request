@@ -17,34 +17,34 @@
 
 	class ActiveGameBySummoner extends RequestMethodAbstract
 	{
-		public $path = EndPoint::SPECTATOR__ACTIVE_GAMES_BY_SUMMONER;
+        public $path = EndPoint::SPECTATOR__ACTIVE_GAMES_BY_SUMMONER;
 
-		/** @deprecated  */
-		public $summonerId;
+        /** @deprecated  */
+        public $summonerId;
 
-		/** @var string */
-		public $encryptedSummonerId;
+        /** @var string */
+        public $puuid;
 
-		function __construct(Platform $platform, $encryptedSummonerId) {
-			parent::__construct($platform);
+        function __construct(Platform $platform, $puuid) {
+            parent::__construct($platform);
 
-			$this->encryptedSummonerId = $encryptedSummonerId;
-		}
+            $this->puuid = $puuid;
+        }
 
-		public function getRequest() {
-			$uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
-			$uri = str_replace("{encryptedSummonerId}", $this->encryptedSummonerId, $uri);
+        public function getRequest() {
+            $uri = $this->platform->apiScheme . "://" . $this->platform->apiHost . "" . $this->path;
+            $uri = str_replace("{encryptedPUUID}", $this->puuid, $uri);
 
-			return $this->getPsr7Request('GET', $uri);
-		}
+            return $this->getPsr7Request('GET', $uri);
+        }
 
-		public function mapping(Response $response) {
-			$json = \GuzzleHttp\json_decode($response->getBody());
+        public function mapping(Response $response) {
+            $json = \GuzzleHttp\json_decode($response->getBody());
 
-			$mapper = new JsonMapper();
+            $mapper = new JsonMapper();
 
-			/** @var CurrentGameInfo $object */
-			$object = $mapper->map($json, new CurrentGameInfo());
-			return $object;
-		}
+            /** @var CurrentGameInfo $object */
+            $object = $mapper->map($json, new CurrentGameInfo());
+            return $object;
+        }
 	}
