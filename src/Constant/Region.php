@@ -28,6 +28,8 @@
         const TH = 'TH';
         const VN = 'VN';
 
+	const ME = 'ME';
+
         // continent
         const AMERICAS = 'AMERICAS';
         const ASIA = 'ASIA';
@@ -82,7 +84,9 @@
             self::SG,
             self::TW,
             self::TH,
-            self::VN
+            self::VN,
+
+	    self::ME
         ];
 
         public static function ContinentMap() {
