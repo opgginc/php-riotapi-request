@@ -44,6 +44,8 @@
                 static::TW(),
                 static::TH(),
                 static::VN(),
+				
+		static::ME(),
 
 				static::AMERICAS(),
 				static::ASIA(),
@@ -203,6 +205,15 @@
 			$platform->apiScheme = 'https';
 			return $platform;
 		}
+
+		public static function ME() {
+           		$platform            = new static();
+           		$platform->region    = Region::ME;
+           		$platform->platform  = 'ME1';
+           		$platform->apiHost   = 'me1.api.riotgames.com';
+           		$platform->apiScheme = 'https';
+           		return $platform;
+       		}
 
         /////////////////////////////////////////
 
