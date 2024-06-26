@@ -51,6 +51,7 @@
             self::EUNE,
             self::EUW,
             self::RU,
+	    self::ME
         ];
 
         public static $CONTINENT_ASIA = [
